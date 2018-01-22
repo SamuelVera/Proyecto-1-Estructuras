@@ -43,10 +43,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btDificil = new javax.swing.JRadioButton();
         btPer = new javax.swing.JRadioButton();
         Texto1 = new javax.swing.JLabel();
-        ID = new javax.swing.JTextField();
+        ID = new javax.swing.JFormattedTextField();
         Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         BotonJugar.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
@@ -67,6 +69,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         getContentPane().add(BotonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, 200, 50));
 
+        Instrucciones.setEditable(false);
         Instrucciones.setColumns(20);
         Instrucciones.setRows(5);
         Instrucciones.setText("Instrucciones: ");
@@ -96,13 +99,18 @@ public class MenuPrincipal extends javax.swing.JFrame {
         Dificultad.add(btPer);
         btPer.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         btPer.setText("Personalizado");
+        btPer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btPerActionPerformed(evt);
+            }
+        });
         getContentPane().add(btPer, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 280, -1, 20));
 
         Texto1.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         Texto1.setText("ID de Jugador: ");
         getContentPane().add(Texto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, -1));
 
-        ID.setToolTipText("Introduce una ID...");
+        ID.setText(" ");
         ID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 IDActionPerformed(evt);
@@ -124,14 +132,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
             remove(dialog);
         }
     }//GEN-LAST:event_BotonSalirActionPerformed
-
-    private void IDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_IDActionPerformed
         //Declaracion tablero
     public Casilla tablero[][];
         //Método para repartir las minas
-    private void colocar(int a, int b, int c, int bound){
+    protected void colocar(int a, int b, int c, int bound){
         tablero = new Casilla[a][b];
         int minaux=0;
         Random random = new Random();
@@ -165,11 +169,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
     private void BotonJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonJugarActionPerformed
             //Objeto user de la clase Jugador
+        
         Jugador user = new Jugador(ID.getText()); 
             //Busqueda de errores en manejo de la interfaz
         if(btFacil.isSelected()==false && btNormal.isSelected()==false && btDificil.isSelected()==false && btPer.isSelected()==false){
             JOptionPane.showMessageDialog(null, "ERROR!!! Selecciona una Dificultad");
-        }else if(user.getID()==""){
+        }else if(user.getID() == ""){
             JOptionPane.showMessageDialog(null, "ERROR!!! Introduce un ID");
         }else{
             if(btFacil.isSelected()){
@@ -179,10 +184,20 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }else if(btDificil.isSelected()){
                 colocar(22,22,100,2);  //22x22 y 100 minas (Dificultad Difícil)
             }else if(btPer.isSelected()){
-                
+                Personalizar personal = new Personalizar();
+                this.setVisible(false);
+                personal.setVisible(true);
             }
         }
     }//GEN-LAST:event_BotonJugarActionPerformed
+
+    private void btPerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btPerActionPerformed
+
+    private void IDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDActionPerformed
+        
+    }//GEN-LAST:event_IDActionPerformed
 
     /**
      * @param args the command line arguments
@@ -225,7 +240,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton BotonSalir;
     private javax.swing.ButtonGroup Dificultad;
     private javax.swing.JLabel Fondo;
-    private javax.swing.JTextField ID;
+    protected javax.swing.JFormattedTextField ID;
     private javax.swing.JTextArea Instrucciones;
     private javax.swing.JLabel Texto;
     private javax.swing.JLabel Texto1;
