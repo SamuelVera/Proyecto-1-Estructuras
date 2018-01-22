@@ -125,8 +125,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void BotonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSalirActionPerformed
             //Mensaje de confirmación (SI/NO) para salir del programa al pulsar boton salir
         int dialogButton;
-        dialogButton = JOptionPane.showConfirmDialog (null, "Are you sure?","WARNING",JOptionPane.YES_NO_OPTION);
-
+        dialogButton = JOptionPane.showConfirmDialog (null, "¿Estas Seguro?","PRECAUCIÓN",JOptionPane.YES_NO_OPTION);
         if(dialogButton == JOptionPane.YES_OPTION) {
             System.exit(0);
         }else remove(dialogButton);
@@ -173,7 +172,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             //Busqueda de errores en manejo de la interfaz
         if(btFacil.isSelected()==false && btNormal.isSelected()==false && btDificil.isSelected()==false && btPer.isSelected()==false){
             JOptionPane.showMessageDialog(null, "ERROR!!! Selecciona una Dificultad");
-        }else if(user.getID() == ""){
+        }else if(ID.getText().trim().length() == 0){
             JOptionPane.showMessageDialog(null, "ERROR!!! Introduce un ID");
         }else{
             if(btFacil.isSelected()){
