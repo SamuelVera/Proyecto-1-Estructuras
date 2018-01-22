@@ -124,13 +124,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void BotonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSalirActionPerformed
             //Mensaje de confirmación (SI/NO) para salir del programa al pulsar boton salir
-        int dialog = JOptionPane.YES_NO_OPTION;
-        JOptionPane.showConfirmDialog(null,"¿Seguro que desea salir?","Confirmación",dialog);
-        if(dialog == JOptionPane.YES_OPTION){   //Salida del programa
+        int dialogButton;
+        dialogButton = JOptionPane.showConfirmDialog (null, "Are you sure?","WARNING",JOptionPane.YES_NO_OPTION);
+
+        if(dialogButton == JOptionPane.YES_OPTION) {
             System.exit(0);
-        }if(dialog == JOptionPane.NO_OPTION){   //Cerrar Ventana del mensaje
-            remove(dialog);
-        }
+        }else remove(dialogButton);
     }//GEN-LAST:event_BotonSalirActionPerformed
         //Declaracion tablero
     public Casilla tablero[][];
