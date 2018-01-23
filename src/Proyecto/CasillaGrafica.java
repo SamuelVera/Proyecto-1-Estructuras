@@ -20,8 +20,8 @@ public class CasillaGrafica extends JButton implements ActionListener{
     private int i,j;
         //Constructor de los parámetros gráficos dela casilla
     CasillaGrafica(int x, int y, int alto, int ancho){
-        setLocation(x, y); //Parámetros posicion en y, en x
-        setPreferredSize(new Dimension(ancho,alto)); //Tamaño de la casilla
+        setLocation(x, y);//Parámetros posicion en y, en x
+        setPreferredSize(new Dimension(ancho,alto));
         addActionListener(this); //Implementación del Action Listener para evento de click
     }
     public void setCoord(int i, int j){    //Coordenada de la casilla
