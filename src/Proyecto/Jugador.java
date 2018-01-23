@@ -18,13 +18,13 @@ public class Jugador {
     Jugador(String id){
         this.id = id;
     }
-    void setRes(int mres){
+    public void setRes(int mres){
         this.mres = mres;
     }
-    int getRes(){
+    public int getRes(){
         return mres;
     }
-    String getID(){
+    public String getID(){
         return this.id;
     }
 }
