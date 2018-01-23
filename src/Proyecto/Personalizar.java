@@ -87,21 +87,44 @@ public class Personalizar extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    static private int a = 1, b = 0, c = 1, d, k;
+    public int getA(){
+        return this.a;
+    }
+    static public int getTamaño1(){ //En búsqueda de la felicidad del tamaño de casilla
+        if(a>28 && a<31) return 18;
+        else if(a > 26 && a <= 28) return 20;
+        else if(a > 24 && a <= 26) return 22;
+        else if(a > 22 && a <= 24) return 24;
+        else if(a > 20 && a <= 22) return 28;
+        else if(a > 18 && a <= 20) return 32;
+        else if(a > 16 && a <= 18) return 36;
+        else if(a > 14 && a <= 16) return 42;
+        else if(a > 12 && a <= 14) return 48;
+        else if(a > 10 && a <= 12) return 52;
+        else if(a > 8 && a <= 10) return 58;
+        else if(a > 6 && a <= 8) return 64;
+        else if(a > 4 && a <= 6) return 70;
+        else if(a >= 2 && a <= 4) return 76;
+        else return 0;
+    }
     private void ConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmarActionPerformed
         
-        int a = 1,b = 0,c = 1,d;
         try{
-            a = Integer.parseInt(Alto.getModel().getValue().toString());
-            b = Integer.parseInt(Ancho.getModel().getValue().toString());
-            c = Integer.parseInt(Nminas.getModel().getValue().toString());
+            this.a = Integer.parseInt(Alto.getModel().getValue().toString());
+            this.b = Integer.parseInt(Ancho.getModel().getValue().toString());
+            this.c = Integer.parseInt(Nminas.getModel().getValue().toString());
         }catch(NumberFormatException e){ //Capturar Excepción de Error en el formato del número
             System.out.println("Excepción "+e+" capturada");
-        }if( a==b && c < a*b){
-                d = (c*100)/(a*b);
-                aux.colocar(a,b,c,d);
+        }
+        if( this.a==this.b && this.c < this.a*this.b){
+                this.d = (this.c*100)/(this.a*this.b);
+                aux.colocar(this.a, this.c, this.d);
                 this.setVisible(false);
-        }else if(a!=b){
+                Tablero aux2 = new Tablero();
+                aux2.setVisible(true);
+        }else if(this.a!=this.b){
             JOptionPane.showMessageDialog(null, "ERROR!!! El Alto y Ancho deben ser IGUALES");
         }else{
             JOptionPane.showMessageDialog(null, "ERROR!!! Hay MÁS minas que casillas");
