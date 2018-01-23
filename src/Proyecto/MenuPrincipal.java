@@ -131,22 +131,30 @@ public class MenuPrincipal extends javax.swing.JFrame {
         }else remove(dialogButton);
     }//GEN-LAST:event_BotonSalirActionPerformed
         //Declaracion tablero
-    public Casilla tablero[][];
+    static protected Casilla tablero[][];
+    protected Jugador user;
+    static private int lado, nminas;
+        //Getter para  tamaño del Lado y No de Minas
+    static public int getLado(){
+        return lado;
+    }
+    static public int getMinas(){
+        return nminas;
+    }
         //Método para repartir las minas
-    protected void colocar(int a, int b, int c, int bound){
-        tablero = new Casilla[a][b];
-        int minaux=0;
+    public void colocar(int a, int c, int bound){
+        tablero = new Casilla[a][a];
+        int minaux=0, rand;
         Random random = new Random();
-        int rand;
         /*Para un azar más realista se barren primero las filas pares
         y luego las impares, esto con el fin de evitar que se acumulen 
         muchas minas en la mitad superior del tablero y las mismas esten
         más dispersas*/
         for(int i=0;i<a;i=i+2){
-            for(int j=0;j<b;j++){
+            for(int j=0;j<a;j++){
                 rand = random.nextInt(10);
                 if(rand <= bound && minaux < c){
-                    tablero[i][j] = new Mina(true); //Objeto de mina
+                    tablero[i][j] = new Mina(false); //Objeto de mina
                     minaux++;
                 }else{
                     tablero[i][j] = new Vacio(true); //Objeto de vacio
@@ -154,10 +162,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         }
         for(int i=1;i<a;i=i+2){
-            for(int j=0;j<b;j++){
+            for(int j=0;j<a;j++){
                 rand = random.nextInt(10);
                 if(rand <= bound && minaux < c){
-                    tablero[i][j] = new Mina(true); //Objeto de mina
+                    tablero[i][j] = new Mina(false); //Objeto de mina
                     minaux++;
                 }else{
                     tablero[i][j] = new Vacio(true); //Objeto de vacio
@@ -167,24 +175,35 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
     private void BotonJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonJugarActionPerformed
             //Objeto user de la clase Jugador
-        
-        Jugador user = new Jugador(ID.getText()); 
+        user = new Jugador(ID.getText()); 
             //Busqueda de errores en manejo de la interfaz
         if(btFacil.isSelected()==false && btNormal.isSelected()==false && btDificil.isSelected()==false && btPer.isSelected()==false){
             JOptionPane.showMessageDialog(null, "ERROR!!! Selecciona una Dificultad");
         }else if(ID.getText().trim().length() == 0){
             JOptionPane.showMessageDialog(null, "ERROR!!! Introduce un ID");
         }else{
+            int aux=0;
             if(btFacil.isSelected()){
-                colocar(10,10,10,1);  //10x10 y 10 minas (Dificultad Facil)
+                this.lado = 10; this.nminas=10;
+                colocar(this.lado,this.nminas,1); //10x10 y 10 minas (Dificultad Facil
+                aux++;
             }else if(btNormal.isSelected()){
-                colocar(15,15,40,1); //15x15 y 40 minas (Dificultad Normal)
+                this.lado = 15; this.nminas = 40;
+                colocar(this.lado,this.nminas,1); //15x15 y 40 minas (Dificultad Media)
+                aux++;
             }else if(btDificil.isSelected()){
-                colocar(22,22,100,2);  //22x22 y 100 minas (Dificultad Difícil)
+                this.lado = 22; this.nminas = 100;
+                colocar(this.lado,this.nminas,2);  //22x22 y 100 minas (Dificultad Difícil)
+                aux++;
             }else if(btPer.isSelected()){
                 Personalizar personal = new Personalizar();
                 this.setVisible(false);
                 personal.setVisible(true);
+            }
+            if(aux==1){
+                this.setVisible(false);
+                Tablero aux2 = new Tablero();
+                aux2.setVisible(true);
             }
         }
     }//GEN-LAST:event_BotonJugarActionPerformed
