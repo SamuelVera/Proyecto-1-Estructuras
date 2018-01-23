@@ -3,13 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+
 package Proyecto;
+
+import java.awt.Button;
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
 /**
  *
  * @author Samuel Vera
  * Carnet: 20171110080
  * CI: 26475783
- */
+*/
+
 public class Tablero extends javax.swing.JFrame {
 
     /**
@@ -29,23 +36,96 @@ public class Tablero extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        IndiciesAncho = new javax.swing.JLabel();
+        TableroD = new javax.swing.JPanel();
+        Mostrar = new javax.swing.JToggleButton();
+        IDtxt = new javax.swing.JLabel();
+        Dificultad = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setResizable(false);
+        setSize(new java.awt.Dimension(600, 500));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        IndiciesAncho.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        IndiciesAncho.setText("0  1  2  3  4  5  6  7  8  9  10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25  26  27  28  29");
-        getContentPane().add(IndiciesAncho, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 650, 30));
+        TableroD.setMaximumSize(null);
+        TableroD.setMinimumSize(null);
+        TableroD.setPreferredSize(null);
+        TableroD.setVerifyInputWhenFocusTarget(false);
+
+        Mostrar.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        Mostrar.setText("Mostrar Tablero");
+        Mostrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MostrarActionPerformed(evt);
+            }
+        });
+        TableroD.add(Mostrar);
+
+        getContentPane().add(TableroD, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
+
+        IDtxt.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        IDtxt.setText("ID:");
+        getContentPane().add(IDtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 100, 40));
+
+        Dificultad.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        Dificultad.setText("Dificultad:");
+        getContentPane().add(Dificultad, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 330, 40));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-        /*Método para buscar minas adyacentes, contarlas o
-        ir liberando espacios si todas las 8 casillas alrededor
-        se encuentran vacias*/
-    private void buscar(){
-        
+
+        //Declaración del arreglo de objeto botones para formar un tablero dinámico
+    CasillaGrafica[][] tabDinamico;
+        //Método para construir el tablero dinamico
+    private void construir(){
+        tabDinamico = new CasillaGrafica[MenuPrincipal.getLado()][MenuPrincipal.getLado()];
+        int tamaño1=0, tamaño2=0;
+        if(MenuPrincipal.getLado() == 10 && MenuPrincipal.getMinas() == 10){
+            Dificultad.setText("Dificultad: Fácil");
+            this.setLocation(250, 10);
+            this.setSize(770,750);
+            TableroD.setPreferredSize(new Dimension(750,750));
+            tamaño1 = 65;
+            tamaño2 = 65;
+        }else if(MenuPrincipal.getLado() == 15 && MenuPrincipal.getMinas() == 40){
+            Dificultad.setText("Dificultad: Media");
+            this.setLocation(250, 10);
+            this.setSize(770,760);
+            TableroD.setPreferredSize(new Dimension(750,750));
+            tamaño1 = 43;
+            tamaño2 = 43;
+        }else if(MenuPrincipal.getLado() == 22 && MenuPrincipal.getMinas() == 100){
+            Dificultad.setText("Dificultad: Difícil");
+            this.setLocation(250, 10);
+            this.setSize(820,760);
+            TableroD.setPreferredSize(new Dimension(800,750));
+            tamaño1 = 27;
+            tamaño2 = 30;
+        }else{
+            Dificultad.setText("Dificultad: Personalizado");
+            this.setLocation(250, 10);
+            this.setSize(820,760);
+            TableroD.setPreferredSize(new Dimension(800,750));
+            tamaño1 = Personalizar.getTamaño1();
+            tamaño2 = Personalizar.getTamaño1();
+        }
+        for(int i=0;i<MenuPrincipal.getLado();i++){
+            for(int j=0;j<MenuPrincipal.getLado();j++){
+                     //Construcción del objeto de la Casilla Gráfica
+                tabDinamico[i][j] = new CasillaGrafica(j,i,tamaño1,tamaño2);
+                    //Guardar coordenadas de la casilla
+                tabDinamico[i][j].setCoord(j, i);
+                    //Añadir la casilla al tablero
+                TableroD.add(tabDinamico[i][j]);
+            }
+        }
     }
+    
+    private void MostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarActionPerformed
+        construir();
+        TableroD.remove(Mostrar);
+    }//GEN-LAST:event_MostrarActionPerformed
+    
     /**
      * @param args the command line arguments
      */
@@ -82,6 +162,9 @@ public class Tablero extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel IndiciesAncho;
+    private javax.swing.JLabel Dificultad;
+    private javax.swing.JLabel IDtxt;
+    private javax.swing.JToggleButton Mostrar;
+    private javax.swing.JPanel TableroD;
     // End of variables declaration//GEN-END:variables
 }
