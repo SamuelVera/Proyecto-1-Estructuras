@@ -36,10 +36,16 @@ public class Tablero extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        TableroD = new javax.swing.JPanel();
-        Mostrar = new javax.swing.JToggleButton();
         IDtxt = new javax.swing.JLabel();
         Dificultad = new javax.swing.JLabel();
+        TableroD = new javax.swing.JPanel();
+        Mostrar = new javax.swing.JToggleButton();
+
+        IDtxt.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        IDtxt.setText("ID:");
+
+        Dificultad.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        Dificultad.setText("Dificultad:");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -48,9 +54,8 @@ public class Tablero extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         TableroD.setMaximumSize(null);
-        TableroD.setMinimumSize(null);
-        TableroD.setPreferredSize(null);
         TableroD.setVerifyInputWhenFocusTarget(false);
+        getContentPane().add(TableroD, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         Mostrar.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         Mostrar.setText("Mostrar Tablero");
@@ -59,17 +64,7 @@ public class Tablero extends javax.swing.JFrame {
                 MostrarActionPerformed(evt);
             }
         });
-        TableroD.add(Mostrar);
-
-        getContentPane().add(TableroD, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
-
-        IDtxt.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        IDtxt.setText("ID:");
-        getContentPane().add(IDtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 100, 40));
-
-        Dificultad.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        Dificultad.setText("Dificultad:");
-        getContentPane().add(Dificultad, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 330, 40));
+        getContentPane().add(Mostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -78,43 +73,45 @@ public class Tablero extends javax.swing.JFrame {
     CasillaGrafica[][] tabDinamico;
         //Método para construir el tablero dinamico
     private void construir(){
-        tabDinamico = new CasillaGrafica[MenuPrincipal.getLado()][MenuPrincipal.getLado()];
-        int tamaño1=0, tamaño2=0;
+        int tamaño1 = 0, tamaño2 = 0, aux = 0;
+        this.setLocation(250, 0);
+        this.setSize(825,770);
+        TableroD.setPreferredSize(new Dimension(800,770));
         if(MenuPrincipal.getLado() == 10 && MenuPrincipal.getMinas() == 10){
+            tabDinamico = new CasillaGrafica[MenuPrincipal.getLado()][MenuPrincipal.getLado()];
             Dificultad.setText("Dificultad: Fácil");
-            this.setLocation(250, 10);
-            this.setSize(770,750);
+            this.setSize(770,770);
             TableroD.setPreferredSize(new Dimension(750,750));
             tamaño1 = 65;
             tamaño2 = 65;
+            aux = MenuPrincipal.getLado();
         }else if(MenuPrincipal.getLado() == 15 && MenuPrincipal.getMinas() == 40){
+            tabDinamico = new CasillaGrafica[MenuPrincipal.getLado()][MenuPrincipal.getLado()];
             Dificultad.setText("Dificultad: Media");
-            this.setLocation(250, 10);
-            this.setSize(770,760);
+            this.setSize(770,770);
             TableroD.setPreferredSize(new Dimension(750,750));
             tamaño1 = 43;
             tamaño2 = 43;
+            aux = MenuPrincipal.getLado();
         }else if(MenuPrincipal.getLado() == 22 && MenuPrincipal.getMinas() == 100){
+            tabDinamico = new CasillaGrafica[MenuPrincipal.getLado()][MenuPrincipal.getLado()];
             Dificultad.setText("Dificultad: Difícil");
-            this.setLocation(250, 10);
-            this.setSize(820,760);
-            TableroD.setPreferredSize(new Dimension(800,750));
             tamaño1 = 27;
             tamaño2 = 30;
+            aux = MenuPrincipal.getLado();
         }else{
+            tabDinamico = new CasillaGrafica[Personalizar.getA()][Personalizar.getA()];
             Dificultad.setText("Dificultad: Personalizado");
-            this.setLocation(250, 10);
-            this.setSize(820,760);
-            TableroD.setPreferredSize(new Dimension(800,750));
             tamaño1 = Personalizar.getTamaño1();
             tamaño2 = Personalizar.getTamaño1();
+            aux = Personalizar.getA();
         }
-        for(int i=0;i<MenuPrincipal.getLado();i++){
-            for(int j=0;j<MenuPrincipal.getLado();j++){
+        for(int i=0;i<aux;i++){
+            for(int j=0;j<aux;j++){
                      //Construcción del objeto de la Casilla Gráfica
                 tabDinamico[i][j] = new CasillaGrafica(j,i,tamaño1,tamaño2);
                     //Guardar coordenadas de la casilla
-                tabDinamico[i][j].setCoord(j, i);
+                tabDinamico[i][j].setCoord(j,i);
                     //Añadir la casilla al tablero
                 TableroD.add(tabDinamico[i][j]);
             }
