@@ -5,6 +5,8 @@
  */
 package Proyecto;
 
+import java.util.Random;
+
 /**
  *
  * @author Samuel Vera
@@ -12,16 +14,13 @@ package Proyecto;
  * CI: 26475783
  */
 public class Casilla {
-    protected boolean vacio = true;
-    protected boolean visual = true;
-    protected int marca;
+    private boolean vacio = true;
+    private boolean visual = true;
+    private int marca;
     
-    Casilla(boolean vacio, boolean visual){ //Establecer vacio o mina, y visualización de la casilla
-        this.vacio = false;
+    Casilla(boolean visual, boolean vacio){ //Establecer vacio o mina, y visualización de la casilla
+        this.vacio = vacio;
         this.visual = visual;
-    }
-    Casilla(int marca){ //Establecer marca del jugador
-        this.marca = marca;
     }
     public boolean isVacio() {  //Retornar si es mina o no
         return vacio;
