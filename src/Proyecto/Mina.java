@@ -12,8 +12,8 @@ package Proyecto;
  * CI: 26475783
  */
 public class Mina extends Casilla{
-    Mina(boolean visual){   //Constructor de visualizar y deterinar mina o vacio
-        super(false,visual);
+    Mina(boolean vacio){   //Constructor de visualizar y deterinar mina o vacio
+        super(false,vacio);
     }
     protected void setMarca(int marca){ //Colocar marca a la casilla
         super.setMarca(marca);
