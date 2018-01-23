@@ -89,28 +89,42 @@ public class Personalizar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     static private int a = 1, b = 0, c = 1, d, k;
-    public int getA(){
-        return this.a;
+    static public int getA(){
+        return a;
     }
     static public int getTamaño1(){ //En búsqueda de la felicidad del tamaño de casilla
-        if(a>28 && a<31) return 18;
-        else if(a > 26 && a <= 28) return 20;
-        else if(a > 24 && a <= 26) return 22;
-        else if(a > 22 && a <= 24) return 24;
-        else if(a > 20 && a <= 22) return 28;
-        else if(a > 18 && a <= 20) return 32;
-        else if(a > 16 && a <= 18) return 36;
-        else if(a > 14 && a <= 16) return 42;
-        else if(a > 12 && a <= 14) return 48;
-        else if(a > 10 && a <= 12) return 52;
-        else if(a > 8 && a <= 10) return 58;
-        else if(a > 6 && a <= 8) return 64;
-        else if(a > 4 && a <= 6) return 70;
-        else if(a >= 2 && a <= 4) return 76;
+        if(getA()==30) return 21;
+        else if(getA() == 29) return 22;
+        else if(getA() == 28) return 23;
+        else if(getA() == 27) return 24;
+        else if(getA() == 26) return 25;
+        else if(getA() == 25) return 26;
+        else if(getA() == 24) return 28;
+        else if(getA() == 23) return 29;
+        else if(getA() == 22) return 30;
+        else if(getA() == 21) return 32;
+        else if(getA() == 20) return 34;
+        else if(getA() == 19) return 36;
+        else if(getA() == 18) return 38;
+        else if(getA() == 17) return 40;
+        else if(getA() == 16) return 43;
+        else if(getA() == 15) return 48;
+        else if(getA() == 14) return 50;
+        else if(getA() == 13) return 53;
+        else if(getA() == 12) return 57;
+        else if(getA() == 11) return 62;
+        else if(getA() == 10) return 68;
+        else if(getA() == 9) return 76;
+        else if(getA() == 8) return 85;
+        else if(getA() == 7) return 97;
+        else if(getA() == 6) return 110;
+        else if(getA()== 5) return 140;
+        else if(getA() == 4) return 170;
+        else if(getA() == 3) return 240;
+        else if(getA() == 2) return 300;
         else return 0;
     }
     private void ConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmarActionPerformed
-        
         try{
             this.a = Integer.parseInt(Alto.getModel().getValue().toString());
             this.b = Integer.parseInt(Ancho.getModel().getValue().toString());
