@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
  * @author Samuel Vera
  * Carnet: 20171110080
  * CI: 26475783
+ * 
  */
 public class MenuPrincipal extends javax.swing.JFrame {
 
