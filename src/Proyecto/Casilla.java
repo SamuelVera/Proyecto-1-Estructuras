@@ -13,28 +13,21 @@ import java.util.Random;
  * Carnet: 20171110080
  * CI: 26475783
  */
-public class Casilla {
-    private boolean vacio = true;
-    private boolean visual = true;
-    private int marca;
+public abstract class Casilla {
+    protected boolean vacio = true;
+    protected boolean visual = true;
+    protected int marca;
     
     Casilla(boolean visual, boolean vacio){ //Establecer vacio o mina, y visualización de la casilla
         this.vacio = vacio;
         this.visual = visual;
     }
-    public boolean isVacio() {  //Retornar si es mina o no
-        return vacio;
-    }
-    public boolean isVisual() { //Retornal si no se ha clickeado la casilla
-        return visual;
-    }
-    public int getMarca() { //Retornar la marca
-        return marca;
-    }
-    protected void setMarca(int marca){ //Cambio de status de la marca
-        this.marca = marca;
-    }
-    protected void setVisual(boolean visual){   //Cambio de status de visualización
-        this.visual = visual;
-    }
+    
+    public abstract boolean isVacio();
+
+    public abstract boolean isVisual();
+    
+    public abstract int getMarca();
+    
+    protected abstract void setMarca(int marca);
 }

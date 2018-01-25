@@ -15,10 +15,20 @@ public class Vacio extends Casilla{
     Vacio(boolean vacio){  //Constructor de visualizar y deterinar mina o vacio
         super(false,vacio);
     }
+    @Override
     protected void setMarca(int marca){ //Colocar marca a la casilla
-        super.setMarca(marca);
+        this.marca = marca;
     }
-    protected void setVisual(boolean visual){
-        super.setVisual(visual);
+    @Override
+    public boolean isVacio() {
+        return this.vacio;
+    }
+    @Override
+    public boolean isVisual() {
+        return this.visual;
+    }
+    @Override
+    public int getMarca() {
+        return this.marca;
     }
 }
