@@ -9,12 +9,14 @@ import java.awt.Dimension;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Samuel Vera
- * 
- * 
+ * CI: 26475783
+ * Carnet: 20171110080
  */
 public class CasillaGrafica extends JButton implements ActionListener{
     private int i,j;
@@ -31,6 +33,11 @@ public class CasillaGrafica extends JButton implements ActionListener{
 
     @Override //Implementación del Action Listener para evento de click
     public void actionPerformed(ActionEvent e) {
+        JFrame frame = new JFrame();
+        String[] options = new String[2];
+        options[0] = new String("Mostrar");
+        options[1] = new String("Marcar");
+        JOptionPane.showOptionDialog(frame.getContentPane(),"CASILLA("+this.i+","+this.j+")","¿Mostrar o Marcar?",0,JOptionPane.INFORMATION_MESSAGE,null,options,null);
         
     }
 }

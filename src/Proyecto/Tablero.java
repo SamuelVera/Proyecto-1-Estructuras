@@ -71,16 +71,16 @@ public class Tablero extends javax.swing.JFrame {
 
         //Declaración del arreglo de objeto botones para formar un tablero dinámico
     CasillaGrafica[][] tabDinamico;
-        //Método para construir el tablero dinamico
+        //Método para construir la interfaz tablero dependiente de la dificultad
     private void construir(){
         int tamaño1 = 0, tamaño2 = 0, aux = 0;
         this.setLocation(250, 0);
-        this.setSize(825,770);
+        this.setSize(900,770);
         TableroD.setPreferredSize(new Dimension(800,770));
         if(MenuPrincipal.getLado() == 10 && MenuPrincipal.getMinas() == 10){
             tabDinamico = new CasillaGrafica[MenuPrincipal.getLado()][MenuPrincipal.getLado()];
             Dificultad.setText("Dificultad: Fácil");
-            this.setSize(770,770);
+            this.setSize(900,750);
             TableroD.setPreferredSize(new Dimension(750,750));
             tamaño1 = 65;
             tamaño2 = 65;
@@ -88,7 +88,7 @@ public class Tablero extends javax.swing.JFrame {
         }else if(MenuPrincipal.getLado() == 15 && MenuPrincipal.getMinas() == 40){
             tabDinamico = new CasillaGrafica[MenuPrincipal.getLado()][MenuPrincipal.getLado()];
             Dificultad.setText("Dificultad: Media");
-            this.setSize(770,770);
+            this.setSize(900,750);
             TableroD.setPreferredSize(new Dimension(750,750));
             tamaño1 = 43;
             tamaño2 = 43;
