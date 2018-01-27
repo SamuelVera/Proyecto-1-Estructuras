@@ -5,26 +5,31 @@
  */
 package Proyecto;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
- *
  * @author Samuel Vera
  * CI: 26475783
  * Carnet: 20171110080
  */
 public class CasillaGrafica extends JButton implements ActionListener{
     private int i,j;
+    
+    private ImageIcon icon = new ImageIcon();
+    
         //Constructor de los parámetros gráficos dela casilla
     CasillaGrafica(int x, int y, int alto, int ancho){
         setLocation(x, y);//Parámetros posicion en y, en x
         setPreferredSize(new Dimension(ancho,alto));
         addActionListener(this); //Implementación del Action Listener para evento de click
+        this.setBackground(Color.gray);
     }
     public void setCoord(int i, int j){    //Coordenada de la casilla
         this.i = i;
@@ -33,11 +38,21 @@ public class CasillaGrafica extends JButton implements ActionListener{
 
     @Override //Implementación del Action Listener para evento de click
     public void actionPerformed(ActionEvent e) {
+        int aux;
         JFrame frame = new JFrame();
         String[] options = new String[2];
         options[0] = new String("Mostrar");
         options[1] = new String("Marcar");
-        JOptionPane.showOptionDialog(frame.getContentPane(),"CASILLA("+this.i+","+this.j+")","¿Mostrar o Marcar?",0,JOptionPane.INFORMATION_MESSAGE,null,options,null);
-        
+        aux = JOptionPane.showOptionDialog(frame.getContentPane(),"CASILLA("+this.i+","+this.j+")","¿Mostrar o Marcar?",0,JOptionPane.INFORMATION_MESSAGE,null,options,null);
+        switch(aux){
+            case 1:
+                
+                break;
+            case 0:
+                
+                break;
+            default:
+                break;
+        }
     }
 }
