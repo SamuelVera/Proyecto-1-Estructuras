@@ -39,6 +39,7 @@ public class Personalizar extends javax.swing.JFrame {
         Nminas = new javax.swing.JSpinner();
         Cancelar = new javax.swing.JButton();
         Confirmar = new javax.swing.JButton();
+        Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -59,12 +60,15 @@ public class Personalizar extends javax.swing.JFrame {
         getContentPane().add(Txt3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
 
         Alto.setModel(new javax.swing.SpinnerNumberModel(2, 2, 30, 1));
+        Alto.setOpaque(false);
         getContentPane().add(Alto, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 60, -1));
 
         Ancho.setModel(new javax.swing.SpinnerNumberModel(2, 2, 30, 1));
+        Ancho.setOpaque(false);
         getContentPane().add(Ancho, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 60, -1));
 
         Nminas.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+        Nminas.setOpaque(false);
         getContentPane().add(Nminas, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 60, -1));
 
         Cancelar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -85,14 +89,19 @@ public class Personalizar extends javax.swing.JFrame {
         });
         getContentPane().add(Confirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 110, 30));
 
+        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo_Principal.jpg"))); // NOI18N
+        getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-25, -15, 940, 960));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
-    static private int a = 1, b = 0, c = 1, d, k;
+    static private int a = 1, b = 0, c = 1, k;
     static public int getA(){
         return a;
     }
-    static public int getTamaño1(){ //En búsqueda de la felicidad del tamaño de casilla
+    static public int getTamaño1(){
+            /*Tamaños adecuados para la que la cantidad de casillas no sobrepase
+            el tamaño en pixeles del tablero*/
         if(getA()==30) return 21;
         else if(getA() == 29) return 22;
         else if(getA() == 28) return 23;
@@ -126,19 +135,18 @@ public class Personalizar extends javax.swing.JFrame {
     }
     private void ConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmarActionPerformed
         try{
-            this.a = Integer.parseInt(Alto.getModel().getValue().toString());
-            this.b = Integer.parseInt(Ancho.getModel().getValue().toString());
-            this.c = Integer.parseInt(Nminas.getModel().getValue().toString());
+            a = Integer.parseInt(Alto.getModel().getValue().toString());
+            b = Integer.parseInt(Ancho.getModel().getValue().toString());
+            c = Integer.parseInt(Nminas.getModel().getValue().toString());
         }catch(NumberFormatException e){ //Capturar Excepción de Error en el formato del número
             System.out.println("Excepción "+e+" capturada");
         }
-        if( this.a==this.b && this.c < this.a*this.b){
-                this.d = (this.c*100)/(this.a*this.b);
-                aux.colocar(this.a, this.c, this.d);
+        if(a==b && c < b*a){ //Paso de la ventana de Personalización a la del tablero
+                aux.colocar(a,c);
                 this.setVisible(false);
                 Tablero aux2 = new Tablero();
                 aux2.setVisible(true);
-        }else if(this.a!=this.b){
+        }else if(a!=b){
             JOptionPane.showMessageDialog(null, "ERROR!!! El Alto y Ancho deben ser IGUALES");
         }else{
             JOptionPane.showMessageDialog(null, "ERROR!!! Hay MÁS minas que casillas");
@@ -191,6 +199,7 @@ public class Personalizar extends javax.swing.JFrame {
     private javax.swing.JSpinner Ancho;
     private javax.swing.JButton Cancelar;
     private javax.swing.JButton Confirmar;
+    private javax.swing.JLabel Fondo;
     private javax.swing.JSpinner Nminas;
     private javax.swing.JLabel Txt;
     private javax.swing.JLabel Txt2;
