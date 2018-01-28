@@ -1,18 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Proyecto;
 
-import java.util.Random;
-
 /**
- *
  * @author Samuel Vera
  * Carnet: 20171110080
  * CI: 26475783
  */
+
 public abstract class Casilla {
     protected boolean vacio = true;
     protected boolean visual = true;
