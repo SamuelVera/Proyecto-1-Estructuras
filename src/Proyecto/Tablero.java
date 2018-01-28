@@ -7,11 +7,7 @@
 
 package Proyecto;
 
-import java.awt.Button;
-import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.net.URL;
 /**
  *
  * @author Samuel Vera
@@ -71,12 +67,16 @@ public class Tablero extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
         //Declaración del arreglo de objeto botones para formar un tablero dinámico
-    CasillaGrafica[][] tabDinamico;
+    static CasillaGrafica[][] tabDinamico;
+    
+    public static CasillaGrafica[][] getTabDinamico(){
+        return tabDinamico;
+    }
         //Método para construir la interfaz tablero dependiente de la dificultad
     private void construir(){
-        int tamaño1 = 0, tamaño2 = 0, aux = 0;
+        int tamaño1 = 0, tamaño2 = 0;
         this.setLocation(250, 0);
-        this.setSize(900,770);
+        this.setSize(800,770);
         TableroD.setPreferredSize(new Dimension(800,770));
         if(MenuPrincipal.getLado() == 10 && MenuPrincipal.getMinas() == 10){
             tabDinamico = new CasillaGrafica[MenuPrincipal.getLado()][MenuPrincipal.getLado()];
@@ -85,7 +85,6 @@ public class Tablero extends javax.swing.JFrame {
             TableroD.setPreferredSize(new Dimension(750,750));
             tamaño1 = 65;
             tamaño2 = 65;
-            aux = MenuPrincipal.getLado();
         }else if(MenuPrincipal.getLado() == 15 && MenuPrincipal.getMinas() == 40){
             tabDinamico = new CasillaGrafica[MenuPrincipal.getLado()][MenuPrincipal.getLado()];
             Dificultad.setText("Dificultad: Media");
@@ -93,22 +92,19 @@ public class Tablero extends javax.swing.JFrame {
             TableroD.setPreferredSize(new Dimension(750,750));
             tamaño1 = 43;
             tamaño2 = 43;
-            aux = MenuPrincipal.getLado();
         }else if(MenuPrincipal.getLado() == 22 && MenuPrincipal.getMinas() == 100){
             tabDinamico = new CasillaGrafica[MenuPrincipal.getLado()][MenuPrincipal.getLado()];
             Dificultad.setText("Dificultad: Difícil");
             tamaño1 = 27;
             tamaño2 = 30;
-            aux = MenuPrincipal.getLado();
         }else{
             tabDinamico = new CasillaGrafica[Personalizar.getA()][Personalizar.getA()];
             Dificultad.setText("Dificultad: Personalizado");
             tamaño1 = Personalizar.getTamaño1();
             tamaño2 = Personalizar.getTamaño1();
-            aux = Personalizar.getA();
         }
-        for(int i=0;i<aux;i++){
-            for(int j=0;j<aux;j++){
+        for(int i=0;i<tabDinamico.length;i++){
+            for(int j=0;j<tabDinamico.length;j++){
                      //Construcción del objeto de la Casilla Gráfica
                 tabDinamico[i][j] = new CasillaGrafica(j,i,tamaño1,tamaño2);
                     //Guardar coordenadas de la casilla
