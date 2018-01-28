@@ -130,7 +130,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         getContentPane().add(ID, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, 280, 30));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo_Principal.jpg"))); // NOI18N
-        getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 520));
+        getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, -10, 510, 530));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -144,7 +144,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         }else remove(dialogButton);
     }//GEN-LAST:event_BotonSalirActionPerformed
         //Declaracion tablero
-    static protected Casilla tablero[][];
+    static public Casilla tablero[][];
     protected Jugador user;
     static private int lado, nminas;
         //Getter para  tamaño del Lado y No de Minas
@@ -154,34 +154,28 @@ public class MenuPrincipal extends javax.swing.JFrame {
     static public int getMinas(){
         return nminas;
     }
+    static public Casilla[][] getTablero(){
+        return tablero;
+    }
         //Método para repartir las minas
-    public void colocar(int a, int c, int bound){
-        tablero = new Casilla[a][a];
+    public void colocar(int lado, int c){
+        tablero = new Casilla[lado][lado];
         int minaux=0, rand;
         Random random = new Random();
-        /*Para un azar más realista se barren primero las filas pares
-        y luego las impares, esto con el fin de evitar que se acumulen 
-        muchas minas en la mitad superior del tablero y las mismas esten
-        más dispersas*/
-        for(int i=0;i<a;i=i+2){
-            for(int j=0;j<a;j++){
-                rand = random.nextInt(10);
-                if(rand <= bound && minaux < c){
-                    tablero[i][j] = new Mina(false); //Objeto de mina
-                    minaux++;
-                }else{
-                    tablero[i][j] = new Vacio(true); //Objeto de vacio
-                }
-            }
-        }
-        for(int i=1;i<a;i=i+2){
-            for(int j=0;j<a;j++){
-                rand = random.nextInt(10);
-                if(rand <= bound && minaux < c){
-                    tablero[i][j] = new Mina(false); //Objeto de mina
-                    minaux++;
-                }else{
-                    tablero[i][j] = new Vacio(true); //Objeto de vacio
+        /*Barrido del arreglo y repartición de minas de manera aleatoria
+        en una casilla se depositara una mina cada 2 de 25 veces, se repetira
+        varias veces el barrido, solo que en la siguientes veces que se repita
+        ignorará las casillas que ya guardan una mina*/
+        while(minaux < c){
+            for(int i=0;i<lado;i++){
+                for(int j=0;j<lado;j++){
+                    rand = random.nextInt(25);
+                    if(tablero[i][j] == null){
+                        tablero[i][j] = new Vacio(true); //Objeto de vacio
+                    }else if(rand >= 23 && minaux < c && tablero[i][j].vacio!=false){
+                        tablero[i][j] = new Mina(false); //Objeto de mina
+                        minaux++;
+                    }
                 }
             }
         }
@@ -197,22 +191,20 @@ public class MenuPrincipal extends javax.swing.JFrame {
         }else{
             int aux=0;
             if(btFacil.isSelected()){
-                this.lado = 10; this.nminas=10;
-                colocar(this.lado,this.nminas,1); //10x10 y 10 minas (Dificultad Facil
+                this.lado = 10; this.nminas=10; //10x10 y 10 minas (Dificultad Facil
                 aux++;
             }else if(btNormal.isSelected()){
-                this.lado = 15; this.nminas = 40;
-                colocar(this.lado,this.nminas,1); //15x15 y 40 minas (Dificultad Media)
+                this.lado = 15; this.nminas = 40; //15x15 y 40 minas (Dificultad Media)
                 aux++;
             }else if(btDificil.isSelected()){
-                this.lado = 22; this.nminas = 100;
-                colocar(this.lado,this.nminas,2);  //22x22 y 100 minas (Dificultad Difícil)
+                this.lado = 22; this.nminas = 100;  //22x22 y 100 minas (Dificultad Difícil)
                 aux++;
             }else if(btPer.isSelected()){
                 Personalizar personal = new Personalizar();
                 this.setVisible(false);
                 personal.setVisible(true);
             }
+            colocar(this.lado,this.nminas);
             if(aux==1){
                 this.setVisible(false);
                 Tablero aux2 = new Tablero();
