@@ -1,18 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-
 package Proyecto;
 
 import java.awt.Dimension;
 /**
- *
- * @author Samuel Vera
- * Carnet: 20171110080
- * CI: 26475783
+ * Clase del JFrame para desplegar los gráficos del tablero
 */
 
 public class Tablero extends javax.swing.JFrame {
@@ -66,55 +56,58 @@ public class Tablero extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-        //Declaración del arreglo de objeto botones para formar un tablero dinámico
+        //Declaración del arreglo de las gráficas de la casilla
     static CasillaGrafica[][] tabDinamico;
+        //Tablero contruido en la clase MenuPrincipal
+    static Casilla[][] tablero = MenuPrincipal.getTablero();
     
     public static CasillaGrafica[][] getTabDinamico(){
         return tabDinamico;
     }
         //Método para construir la interfaz tablero dependiente de la dificultad
     private void construir(){
-        int tamaño1 = 0, tamaño2 = 0;
+        int tamaño1 = 0, tamaño2 = 0, aux;
         this.setLocation(250, 0);
         this.setSize(800,770);
         TableroD.setPreferredSize(new Dimension(800,770));
         if(MenuPrincipal.getLado() == 10 && MenuPrincipal.getMinas() == 10){
-            tabDinamico = new CasillaGrafica[MenuPrincipal.getLado()][MenuPrincipal.getLado()];
             Dificultad.setText("Dificultad: Fácil");
+            aux=10;
             this.setSize(900,750);
             TableroD.setPreferredSize(new Dimension(750,750));
             tamaño1 = 65;
             tamaño2 = 65;
         }else if(MenuPrincipal.getLado() == 15 && MenuPrincipal.getMinas() == 40){
-            tabDinamico = new CasillaGrafica[MenuPrincipal.getLado()][MenuPrincipal.getLado()];
             Dificultad.setText("Dificultad: Media");
+            aux=15;
             this.setSize(900,750);
             TableroD.setPreferredSize(new Dimension(750,750));
             tamaño1 = 43;
             tamaño2 = 43;
         }else if(MenuPrincipal.getLado() == 22 && MenuPrincipal.getMinas() == 100){
-            tabDinamico = new CasillaGrafica[MenuPrincipal.getLado()][MenuPrincipal.getLado()];
+            aux=22;
             Dificultad.setText("Dificultad: Difícil");
             tamaño1 = 27;
             tamaño2 = 30;
         }else{
-            tabDinamico = new CasillaGrafica[Personalizar.getA()][Personalizar.getA()];
+            aux=Personalizar.getA();
             Dificultad.setText("Dificultad: Personalizado");
             tamaño1 = Personalizar.getTamaño1();
             tamaño2 = Personalizar.getTamaño1();
         }
+            //El arreglo para las gráficas debe ser del mismo tamaño que el contruido en MenuPrincipal
+        tabDinamico = new CasillaGrafica[aux][aux];
         for(int i=0;i<tabDinamico.length;i++){
             for(int j=0;j<tabDinamico.length;j++){
                      //Construcción del objeto de la Casilla Gráfica
                 tabDinamico[i][j] = new CasillaGrafica(j,i,tamaño1,tamaño2);
-                    //Guardar coordenadas de la casilla
-                tabDinamico[i][j].setCoord(j,i);
                     //Añadir la casilla al tablero
                 TableroD.add(tabDinamico[i][j]);
             }
         }
     }
     
+        //Clickear boton de mostrar
     private void MostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarActionPerformed
         construir();
         TableroD.remove(Mostrar);
