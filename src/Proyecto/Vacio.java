@@ -1,23 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Proyecto;
 
 /**
- *
- * @author Samuel Vera
- * Carnet: 20171110080
- * CI: 26475783
+ * Clase Vacio, los objetos de esta clase son Casillas vacias
+ * Sub Clase de Casilla
  */
 public class Vacio extends Casilla{
-    Vacio(boolean vacio){  //Constructor de visualizar y deterinar mina o vacio
+        //Constructor de una casilla vacia
+    Vacio(boolean vacio){
         super(false,vacio);
-    }
-    @Override
-    protected void setMarca(int marca){ //Colocar marca a la casilla
-        this.marca = marca;
     }
     @Override
     public boolean isVacio() {
@@ -28,7 +18,7 @@ public class Vacio extends Casilla{
         return this.visual;
     }
     @Override
-    public int getMarca() {
-        return this.marca;
+    public void setVisual(boolean visual){
+        this.visual = visual;
     }
 }
