@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Proyecto;
 
 import java.util.Random;
@@ -15,10 +10,18 @@ import javax.swing.JOptionPane;
  * CI: 26475783
  * 
  */
+
+/**
+ * 
+ * CLASE EN LA CUAL COMIENZA LA EJECUCIÓN DEL PROGRAMA
+ * 
+ */
+
 public class MenuPrincipal extends javax.swing.JFrame {
 
+
     /**
-     * Componentes de la Vetana
+     * Constructo de la clase del MenuPrincipal vetana
      */
     public MenuPrincipal() {
         initComponents();
@@ -36,15 +39,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         Dificultad = new javax.swing.ButtonGroup();
         BotonJugar = new javax.swing.JButton();
         BotonSalir = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        Instrucciones = new javax.swing.JTextArea();
         Texto = new javax.swing.JLabel();
         btFacil = new javax.swing.JRadioButton();
-        btNormal = new javax.swing.JRadioButton();
+        btMedia = new javax.swing.JRadioButton();
         btDificil = new javax.swing.JRadioButton();
         btPer = new javax.swing.JRadioButton();
         Texto1 = new javax.swing.JLabel();
         ID = new javax.swing.JFormattedTextField();
+        ComoJugar = new javax.swing.JButton();
         Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -62,7 +64,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 BotonJugarActionPerformed(evt);
             }
         });
-        getContentPane().add(BotonJugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 200, 50));
+        getContentPane().add(BotonJugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 200, 50));
 
         BotonSalir.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
         BotonSalir.setForeground(new java.awt.Color(102, 102, 102));
@@ -73,38 +75,29 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 BotonSalirActionPerformed(evt);
             }
         });
-        getContentPane().add(BotonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, 200, 50));
-
-        Instrucciones.setEditable(false);
-        Instrucciones.setColumns(20);
-        Instrucciones.setRows(5);
-        Instrucciones.setText("Instrucciones: ");
-        Instrucciones.setOpaque(false);
-        jScrollPane1.setViewportView(Instrucciones);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 430, 170));
+        getContentPane().add(BotonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, 200, 50));
 
         Texto.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         Texto.setText("Dificultad:");
-        getContentPane().add(Texto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, 20));
+        getContentPane().add(Texto, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, -1, 20));
 
         Dificultad.add(btFacil);
         btFacil.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         btFacil.setText("Fácil");
         btFacil.setOpaque(false);
-        getContentPane().add(btFacil, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, -1, 20));
+        getContentPane().add(btFacil, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, -1, 20));
 
-        Dificultad.add(btNormal);
-        btNormal.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
-        btNormal.setText("Normal");
-        btNormal.setOpaque(false);
-        getContentPane().add(btNormal, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, -1, 20));
+        Dificultad.add(btMedia);
+        btMedia.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
+        btMedia.setText("Media");
+        btMedia.setOpaque(false);
+        getContentPane().add(btMedia, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, -1, 20));
 
         Dificultad.add(btDificil);
         btDificil.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         btDificil.setText("Difícil");
         btDificil.setOpaque(false);
-        getContentPane().add(btDificil, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, 80, 20));
+        getContentPane().add(btDificil, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 240, 80, 20));
 
         Dificultad.add(btPer);
         btPer.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
@@ -115,11 +108,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 btPerActionPerformed(evt);
             }
         });
-        getContentPane().add(btPer, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 280, -1, 20));
+        getContentPane().add(btPer, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 270, -1, 20));
 
         Texto1.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         Texto1.setText("ID de Jugador: ");
-        getContentPane().add(Texto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, -1));
+        getContentPane().add(Texto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
 
         ID.setText(" ");
         ID.addActionListener(new java.awt.event.ActionListener() {
@@ -129,12 +122,24 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         getContentPane().add(ID, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, 280, 30));
 
+        ComoJugar.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
+        ComoJugar.setForeground(new java.awt.Color(102, 102, 102));
+        ComoJugar.setText("Como Jugar");
+        ComoJugar.setOpaque(false);
+        ComoJugar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComoJugarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(ComoJugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, 200, 50));
+
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo_Principal.jpg"))); // NOI18N
-        getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, -10, 510, 530));
+        getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, -10, 510, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Acción de clickear el botón de salida
     private void BotonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSalirActionPerformed
             //Mensaje de confirmación (SI/NO) para salir del programa al pulsar boton salir
         int dialogButton;
@@ -143,19 +148,20 @@ public class MenuPrincipal extends javax.swing.JFrame {
             System.exit(0);
         }else remove(dialogButton);
     }//GEN-LAST:event_BotonSalirActionPerformed
-        //Declaracion tablero
-    static public Casilla tablero[][];
-    protected Jugador user;
+        //Declaracion del arreglo tablero de Casillas
+    static protected Casilla tablero[][];
+    static String ID2;
+    Tablero aux2 = new Tablero();
     static private int lado, nminas;
-        //Getter para  tamaño del Lado y No de Minas
-    static public int getLado(){
-        return lado;
-    }
-    static public int getMinas(){
+        //Getter para tamaño del  y No de Minas
+    public static int getMinas(){
         return nminas;
     }
-    static public Casilla[][] getTablero(){
+    public static Casilla[][] getTablero(){
         return tablero;
+    }
+    public static int getLado() {
+        return lado;
     }
         //Método para repartir las minas
     public void colocar(int lado, int c){
@@ -167,8 +173,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         varias veces el barrido, solo que en la siguientes veces que se repita
         ignorará las casillas que ya guardan una mina*/
         while(minaux < c){
-            for(int i=0;i<lado;i++){
-                for(int j=0;j<lado;j++){
+            for(int i=0;i<tablero.length;i++){
+                for(int j=0;j<tablero.length;j++){
                     rand = random.nextInt(25);
                     if(tablero[i][j] == null){
                         tablero[i][j] = new Vacio(true); //Objeto de vacio
@@ -181,10 +187,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         }
     }
     private void BotonJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonJugarActionPerformed
-            //Objeto user de la clase Jugador
-        user = new Jugador(ID.getText()); 
             //Busqueda de errores en manejo de la interfaz
-        if(btFacil.isSelected()==false && btNormal.isSelected()==false && btDificil.isSelected()==false && btPer.isSelected()==false){
+        ID2 = ID.getText();
+        if(btFacil.isSelected()==false && btMedia.isSelected()==false && btDificil.isSelected()==false && btPer.isSelected()==false){
             JOptionPane.showMessageDialog(null, "ERROR!!! Selecciona una Dificultad");
         }else if(ID.getText().trim().length() == 0){
             JOptionPane.showMessageDialog(null, "ERROR!!! Introduce un ID");
@@ -193,7 +198,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             if(btFacil.isSelected()){
                 this.lado = 10; this.nminas=10; //10x10 y 10 minas (Dificultad Facil
                 aux++;
-            }else if(btNormal.isSelected()){
+            }else if(btMedia.isSelected()){
                 this.lado = 15; this.nminas = 40; //15x15 y 40 minas (Dificultad Media)
                 aux++;
             }else if(btDificil.isSelected()){
@@ -207,7 +212,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
             colocar(this.lado,this.nminas);
             if(aux==1){
                 this.setVisible(false);
-                Tablero aux2 = new Tablero();
                 aux2.setVisible(true);
             }
         }
@@ -220,6 +224,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void IDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDActionPerformed
         
     }//GEN-LAST:event_IDActionPerformed
+
+    private void ComoJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComoJugarActionPerformed
+        ComoJugar como = new ComoJugar();
+        como.setVisible(true);
+    }//GEN-LAST:event_ComoJugarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -260,16 +269,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonJugar;
     private javax.swing.JButton BotonSalir;
+    private javax.swing.JButton ComoJugar;
     private javax.swing.ButtonGroup Dificultad;
     private javax.swing.JLabel Fondo;
     protected javax.swing.JFormattedTextField ID;
-    private javax.swing.JTextArea Instrucciones;
     private javax.swing.JLabel Texto;
     private javax.swing.JLabel Texto1;
     private javax.swing.JRadioButton btDificil;
     private javax.swing.JRadioButton btFacil;
-    private javax.swing.JRadioButton btNormal;
+    private javax.swing.JRadioButton btMedia;
     private javax.swing.JRadioButton btPer;
-    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
