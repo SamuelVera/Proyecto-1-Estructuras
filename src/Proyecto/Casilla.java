@@ -1,26 +1,23 @@
 package Proyecto;
 
 /**
- * @author Samuel Vera
- * Carnet: 20171110080
- * CI: 26475783
+ * Clase abstracta Casilla, apartir de la cual se de herencia a dos subClases de
+ * casillas
  */
 
 public abstract class Casilla {
-    protected boolean vacio = true;
-    protected boolean visual = true;
-    protected int marca;
+    protected boolean vacio = true; //true=Casilla Vacia // false=Casilla con mina
+    protected boolean visual = false; //true=Casilla revelada // false=Casilla oculta
     
-    Casilla(boolean visual, boolean vacio){ //Establecer vacio o mina, y visualización de la casilla
+        //Constructor de la Casilla, para determinar su estado de vacio y si esta visualizada
+    Casilla(boolean visual, boolean vacio){
         this.vacio = vacio;
         this.visual = visual;
     }
-    
+        //Getter del contenido de la casilla
     public abstract boolean isVacio();
-
+        //Getter del estado de la casilla
     public abstract boolean isVisual();
-    
-    public abstract int getMarca();
-    
-    protected abstract void setMarca(int marca);
+        //Setter del estado de la casilla
+    public abstract void setVisual(boolean visual);
 }
