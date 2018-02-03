@@ -14,8 +14,7 @@ public class Personalizar extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
     }
-        //Objeto del MenuPrincipal
-    MenuPrincipal aux = new MenuPrincipal();
+    
     /**
      * Despligue del JForm
      */
@@ -136,9 +135,8 @@ public class Personalizar extends javax.swing.JFrame {
             System.out.println("Excepción "+e+" capturada");
         }
         if(a==b && c < b*a){ //Paso de la ventana de Personalización a la del tablero
-                aux.colocar(a,c);
                 this.setVisible(false);
-                Tablero aux2 = new Tablero();
+                TableroGrafico aux2 = new TableroGrafico(a,c);
                 aux2.setVisible(true);
         }else if(a!=b){
             JOptionPane.showMessageDialog(null, "ERROR!!! El Alto y Ancho deben ser IGUALES");
@@ -149,7 +147,6 @@ public class Personalizar extends javax.swing.JFrame {
     }//GEN-LAST:event_ConfirmarActionPerformed
 
     private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
-        aux.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_CancelarActionPerformed
 
