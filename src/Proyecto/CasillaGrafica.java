@@ -19,9 +19,9 @@ import javax.swing.JOptionPane;
 public class CasillaGrafica extends JButton implements ActionListener{
     private int i,j; //Coordenadas de la casilla
         //Tablero con objetos incializados en la clase MenuPrincipal
-    private Casilla[][] tablero = MenuPrincipal.getTablero();
-        //Tablero grafico con objetos inicializados en la clase Tablero
-    private CasillaGrafica[][] tablero2 = Tablero.getTabDinamico();
+    private Casilla[][] tablero = TableroGrafico.getTablero();
+        //Tablero grafico con objetos inicializados en la clase TableroGrafico
+    private CasillaGrafica[][] tablero2 = TableroGrafico.getTabDinamico();
     
         //Constructor de los parámetros gráficos de la casilla
     CasillaGrafica(int x, int y, int alto, int ancho){
@@ -55,21 +55,20 @@ public class CasillaGrafica extends JButton implements ActionListener{
               corresponder con la opción seleccionada*/
             aux = JOptionPane.showOptionDialog(frame.getContentPane(),"Selecciona un tipo de marca","",0,JOptionPane.INFORMATION_MESSAGE,null,opcion,null);
             if(aux == 0){ //Poner icono de la bandera en el botón
-                setImagen("src\\Imagenes\\Bandera_Amarilla.png");
+                setIcono("src\\Imagenes\\Bandera_Amarilla.png");
             }else if(aux == 1){ //Poner icono de interrogación en el botón
-                setImagen("src\\Imagenes\\Misterio.png");
+                setIcono("src\\Imagenes\\Misterio.png");
             }
         }else if(aux == 0){ //Opción de mostrar la casilla selecionada
-            determinarCasilla();
+            opcionCasilla();
         }
     }
         //Método en el que se determina el contenido de la casilla
-    private void determinarCasilla(){
+    private void opcionCasilla(){
         if(tablero[this.i][this.j].isVacio() == false){ //La casilla contiene una mina
             perder();
         }else if(tablero[this.i][this.j].isVacio() == true){ //La casilla esta vacia
-            int m=this.i, n=this.j;
-            buscar(m,n);
+            buscar(this.i,this.j);
             ganar();
         }
     }
@@ -83,35 +82,35 @@ public class CasillaGrafica extends JButton implements ActionListener{
             -Si la casilla ya ha sido visitada
             -Si alguna casilla adyacente posee una bomba
     */
-    private int buscar(int m, int n){
-        if(m>=0 && n>=0 && m<tablero.length && n<tablero.length){ //Buscar si el índice existe
-          if(tablero[m][n].isVisual()==false){ //Determinar si la casilla ya ha sido visitada
+    private int buscar(int x, int y){
+        if(x>=0 && y>=0 && x<tablero.length && y<tablero.length){ //Buscar si el índice existe
+          if(tablero[x][y].isVisual()==false){ //Determinar si la casilla ya ha sido visitada
             int nBombas;
             nBombas = 0;
               //Barrido de casillas adyacentes en búsqueda de bombas
-            for (int k=m-1;k<m+2;k++){
-              for (int l=n-1;l<n+2;l++){
+            for (int k=x-1;k<x+2;k++){
+              for (int l=y-1;l<y+2;l++){
                  //Evitar excepciones donde se evalue un indice mayor al del arreglo o negativo
-                if(k>=0 && l>=0 && (k!=m || l!=n) && k<tablero.length && l<tablero.length){
+                if(k>=0 && l>=0 && (k!=x || l!=y) && k<tablero.length && l<tablero.length){
                   if(tablero[k][l].isVisual() == false && tablero[k][l].isVacio() == false){
                     nBombas++;
                   }
                 }
               }
             }
-            tablero[m][n].setVisual(true);
-            tablero2[m][n].setEnabled(false);
+            tablero[x][y].setVisual(true);
+            tablero2[x][y].setEnabled(false);
             if(nBombas == 0){        
-              buscar(m-1,n-1); //Arriba a la izquierda
-              buscar(m-1,n);   //Arriba
-              buscar(m-1,n+1); //Arriba a la derecha
-              buscar(m,n-1);   //Izquierda
-              buscar(m,n+1);   //Derecha
-              buscar(m+1,n-1); //Abajo a la izquierda
-              buscar(m+1,n);   //Abajo
-              buscar(m+1,n+1); //Abajo a la derecha
+              buscar(x-1,y-1); //Arriba a la izquierda
+              buscar(x-1,y);   //Arriba
+              buscar(x-1,y+1); //Arriba a la derecha
+              buscar(x,y-1);   //Izquierda
+              buscar(x,y+1);   //Derecha
+              buscar(x+1,y-1); //Abajo a la izquierda
+              buscar(x+1,y);   //Abajo
+              buscar(x+1,y+1); //Abajo a la derecha
             }else{
-              numero(nBombas,m,n);
+              numeroIcono(nBombas,x,y);
               return 0; //Caso en el que hay una bomba adyacente
             }
           }else {
@@ -123,31 +122,31 @@ public class CasillaGrafica extends JButton implements ActionListener{
         return 0;
     }
         //Método para seleccionar el número que se le colocará a la casilla
-    private void numero(int Bombas, int m, int n){
-        switch (Bombas) {
+    private void numeroIcono(int nBombas, int x, int y){
+        switch (nBombas) {
             case 1:
-                setImagen("src\\Imagenes\\Uno.png",m,n);
+                setIcono("src\\Imagenes\\Uno.png",x,y);
                 break;
             case 2:
-                setImagen("src\\Imagenes\\Dos.png",m,n);
+                setIcono("src\\Imagenes\\Dos.png",x,y);
                 break;
             case 3:
-                setImagen("src\\Imagenes\\Tres.png",m,n);
+                setIcono("src\\Imagenes\\Tres.png",x,y);
                 break;
             case 4:
-                setImagen("src\\Imagenes\\Cuatro.png",m,n);
+                setIcono("src\\Imagenes\\Cuatro.png",x,y);
                 break;
             case 5:
-                setImagen("src\\Imagenes\\Cinco.png",m,n);
+                setIcono("src\\Imagenes\\Cinco.png",x,y);
                 break;
             case 6:
-                setImagen("src\\Imagenes\\Seis.png",m,n);
+                setIcono("src\\Imagenes\\Seis.png",x,y);
                 break;
             case 7:
-                setImagen("src\\Imagenes\\Siete.png",m,n);
+                setIcono("src\\Imagenes\\Siete.png",x,y);
                 break;
             case 8:
-                setImagen("src\\Imagenes\\Ocho.png",m,n);
+                setIcono("src\\Imagenes\\Ocho.png",x,y);
                 break;
             default:
                 break;
@@ -155,13 +154,13 @@ public class CasillaGrafica extends JButton implements ActionListener{
     }
         //Método de pérdida de la partida
     private void perder(){
-        setImagen("src\\Imagenes\\Mina.png");
+        setIcono("src\\Imagenes\\Mina.png");
         this.setBackground(Color.red);
         for(int k=0;k<tablero.length;k++){ //Barrido del arreglo para revelar las minas
             for(int l=0;l<tablero.length;l++){
                 if(tablero[k][l].isVacio() == false){
                     tablero2[k][l].setBackground(Color.red);
-                    setImagen("src\\Imagenes\\Mina.png",k,l);
+                    setIcono("src\\Imagenes\\Mina.png",k,l);
                 }
             }
         }
@@ -190,18 +189,18 @@ public class CasillaGrafica extends JButton implements ActionListener{
     }
         //Método para colocar o cambiar imagen de la casilla
         //Parametros: Dirección e indices
-    private void setImagen(String a, int b, int c){
-        ImageIcon img = new ImageIcon(a);
+    private void setIcono(String direccion, int x, int y){
+        ImageIcon img = new ImageIcon(direccion);
         Image image = img.getImage(); //Transformación de ImageIcon a Image
         //Escalado de la imagen acorde a las dimensiones de la casilla
         Image newimg = image.getScaledInstance(this.getHeight(), this.getWidth(),  java.awt.Image.SCALE_SMOOTH);
         img = new ImageIcon(newimg); //Transformación de vuelta a ImageIcon
-        tablero2[b][c].setIcon(img); //Colocar la imagen
+        tablero2[x][y].setIcon(img); //Colocar la imagen
     }
         //Sobrecarga del metodo setImage
         //Parametros Dirección
-    private void setImagen(String a){
-        ImageIcon img = new ImageIcon(a);
+    private void setIcono(String direccion){
+        ImageIcon img = new ImageIcon(direccion);
         Image image = img.getImage(); //Transformación de ImageIcon a Image
         //Escalado de la imagen acorde a las dimensiones de la casilla
         Image newimg = image.getScaledInstance(this.getHeight(), this.getWidth(),  java.awt.Image.SCALE_SMOOTH);
