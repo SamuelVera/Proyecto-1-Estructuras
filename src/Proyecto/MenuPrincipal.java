@@ -37,49 +37,49 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         Dificultad = new javax.swing.ButtonGroup();
-        BotonJugar = new javax.swing.JButton();
-        BotonSalir = new javax.swing.JButton();
-        Texto = new javax.swing.JLabel();
+        botonJugar = new javax.swing.JButton();
+        botonSalir = new javax.swing.JButton();
+        texto = new javax.swing.JLabel();
         btFacil = new javax.swing.JRadioButton();
         btMedia = new javax.swing.JRadioButton();
         btDificil = new javax.swing.JRadioButton();
         btPer = new javax.swing.JRadioButton();
-        Texto1 = new javax.swing.JLabel();
-        ID = new javax.swing.JFormattedTextField();
-        ComoJugar = new javax.swing.JButton();
-        Fondo = new javax.swing.JLabel();
+        texto1 = new javax.swing.JLabel();
+        id = new javax.swing.JFormattedTextField();
+        comoJugar = new javax.swing.JButton();
+        fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        BotonJugar.setBackground(new java.awt.Color(204, 204, 204));
-        BotonJugar.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
-        BotonJugar.setForeground(new java.awt.Color(102, 102, 102));
-        BotonJugar.setText("Jugar");
-        BotonJugar.setOpaque(false);
-        BotonJugar.addActionListener(new java.awt.event.ActionListener() {
+        botonJugar.setBackground(new java.awt.Color(204, 204, 204));
+        botonJugar.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
+        botonJugar.setForeground(new java.awt.Color(102, 102, 102));
+        botonJugar.setText("Jugar");
+        botonJugar.setOpaque(false);
+        botonJugar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonJugarActionPerformed(evt);
+                botonJugarActionPerformed(evt);
             }
         });
-        getContentPane().add(BotonJugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 200, 50));
+        getContentPane().add(botonJugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 200, 50));
 
-        BotonSalir.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
-        BotonSalir.setForeground(new java.awt.Color(102, 102, 102));
-        BotonSalir.setText("Salir");
-        BotonSalir.setOpaque(false);
-        BotonSalir.addActionListener(new java.awt.event.ActionListener() {
+        botonSalir.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
+        botonSalir.setForeground(new java.awt.Color(102, 102, 102));
+        botonSalir.setText("Salir");
+        botonSalir.setOpaque(false);
+        botonSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonSalirActionPerformed(evt);
+                botonSalirActionPerformed(evt);
             }
         });
-        getContentPane().add(BotonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, 200, 50));
+        getContentPane().add(botonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, 200, 50));
 
-        Texto.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
-        Texto.setText("Dificultad:");
-        getContentPane().add(Texto, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, -1, 20));
+        texto.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
+        texto.setText("Dificultad:");
+        getContentPane().add(texto, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, -1, 20));
 
         Dificultad.add(btFacil);
         btFacil.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
@@ -110,88 +110,56 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         getContentPane().add(btPer, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 270, -1, 20));
 
-        Texto1.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
-        Texto1.setText("ID de Jugador: ");
-        getContentPane().add(Texto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
+        texto1.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
+        texto1.setText("ID de Jugador: ");
+        getContentPane().add(texto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
 
-        ID.setText(" ");
-        ID.addActionListener(new java.awt.event.ActionListener() {
+        id.setText(" ");
+        id.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IDActionPerformed(evt);
+                idActionPerformed(evt);
             }
         });
-        getContentPane().add(ID, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, 280, 30));
+        getContentPane().add(id, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, 280, 30));
 
-        ComoJugar.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
-        ComoJugar.setForeground(new java.awt.Color(102, 102, 102));
-        ComoJugar.setText("Como Jugar");
-        ComoJugar.setOpaque(false);
-        ComoJugar.addActionListener(new java.awt.event.ActionListener() {
+        comoJugar.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
+        comoJugar.setForeground(new java.awt.Color(102, 102, 102));
+        comoJugar.setText("Como Jugar");
+        comoJugar.setOpaque(false);
+        comoJugar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ComoJugarActionPerformed(evt);
+                comoJugarActionPerformed(evt);
             }
         });
-        getContentPane().add(ComoJugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, 200, 50));
+        getContentPane().add(comoJugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, 200, 50));
 
-        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo_Principal.jpg"))); // NOI18N
-        getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, -10, 510, 400));
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo_Principal.jpg"))); // NOI18N
+        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, -10, 510, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     //Acción de clickear el botón de salida
-    private void BotonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSalirActionPerformed
+    private void botonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSalirActionPerformed
             //Mensaje de confirmación (SI/NO) para salir del programa al pulsar boton salir
         int dialogButton;
         dialogButton = JOptionPane.showConfirmDialog (null, "¿Estas Seguro?","PRECAUCIÓN",JOptionPane.YES_NO_OPTION);
         if(dialogButton == JOptionPane.YES_OPTION) {
             System.exit(0);
         }else remove(dialogButton);
-    }//GEN-LAST:event_BotonSalirActionPerformed
-        //Declaracion del arreglo tablero de Casillas
-    static protected Casilla tablero[][];
-    static String ID2;
-    Tablero aux2 = new Tablero();
+    }//GEN-LAST:event_botonSalirActionPerformed
+        
+        //Declaracion a pasar al constructor del tablero
+    static protected String ID2;
     static private int lado, nminas;
-        //Getter para tamaño del  y No de Minas
-    public static int getMinas(){
-        return nminas;
-    }
-    public static Casilla[][] getTablero(){
-        return tablero;
-    }
-    public static int getLado() {
-        return lado;
-    }
-        //Método para repartir las minas
-    public void colocar(int lado, int c){
-        tablero = new Casilla[lado][lado];
-        int minaux=0, rand;
-        Random random = new Random();
-        /*Barrido del arreglo y repartición de minas de manera aleatoria
-        en una casilla se depositara una mina cada 2 de 25 veces, se repetira
-        varias veces el barrido, solo que en la siguientes veces que se repita
-        ignorará las casillas que ya guardan una mina*/
-        while(minaux < c){
-            for(int i=0;i<tablero.length;i++){
-                for(int j=0;j<tablero.length;j++){
-                    rand = random.nextInt(25);
-                    if(tablero[i][j] == null){
-                        tablero[i][j] = new Vacio(true); //Objeto de vacio
-                    }else if(rand >= 23 && minaux < c && tablero[i][j].vacio!=false){
-                        tablero[i][j] = new Mina(false); //Objeto de mina
-                        minaux++;
-                    }
-                }
-            }
-        }
-    }
-    private void BotonJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonJugarActionPerformed
+
+    
+    private void botonJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonJugarActionPerformed
             //Busqueda de errores en manejo de la interfaz
-        ID2 = ID.getText();
+        ID2 = id.getText();
         if(btFacil.isSelected()==false && btMedia.isSelected()==false && btDificil.isSelected()==false && btPer.isSelected()==false){
             JOptionPane.showMessageDialog(null, "ERROR!!! Selecciona una Dificultad");
-        }else if(ID.getText().trim().length() == 0){
+        }else if(id.getText().trim().length() == 0){
             JOptionPane.showMessageDialog(null, "ERROR!!! Introduce un ID");
         }else{
             int aux=0;
@@ -209,26 +177,27 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 this.setVisible(false);
                 personal.setVisible(true);
             }
-            colocar(this.lado,this.nminas);
+            //colocar(this.lado,this.nminas);
             if(aux==1){
+                TableroGrafico avanzar = new TableroGrafico(this.lado, this.nminas);
                 this.setVisible(false);
-                aux2.setVisible(true);
+                avanzar.setVisible(true);
             }
         }
-    }//GEN-LAST:event_BotonJugarActionPerformed
+    }//GEN-LAST:event_botonJugarActionPerformed
 
     private void btPerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPerActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btPerActionPerformed
 
-    private void IDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDActionPerformed
+    private void idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idActionPerformed
         
-    }//GEN-LAST:event_IDActionPerformed
+    }//GEN-LAST:event_idActionPerformed
 
-    private void ComoJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComoJugarActionPerformed
+    private void comoJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comoJugarActionPerformed
         ComoJugar como = new ComoJugar();
         como.setVisible(true);
-    }//GEN-LAST:event_ComoJugarActionPerformed
+    }//GEN-LAST:event_comoJugarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -267,17 +236,17 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BotonJugar;
-    private javax.swing.JButton BotonSalir;
-    private javax.swing.JButton ComoJugar;
     private javax.swing.ButtonGroup Dificultad;
-    private javax.swing.JLabel Fondo;
-    protected javax.swing.JFormattedTextField ID;
-    private javax.swing.JLabel Texto;
-    private javax.swing.JLabel Texto1;
+    private javax.swing.JButton botonJugar;
+    private javax.swing.JButton botonSalir;
     private javax.swing.JRadioButton btDificil;
     private javax.swing.JRadioButton btFacil;
     private javax.swing.JRadioButton btMedia;
     private javax.swing.JRadioButton btPer;
+    private javax.swing.JButton comoJugar;
+    private javax.swing.JLabel fondo;
+    protected javax.swing.JFormattedTextField id;
+    private javax.swing.JLabel texto;
+    private javax.swing.JLabel texto1;
     // End of variables declaration//GEN-END:variables
 }
