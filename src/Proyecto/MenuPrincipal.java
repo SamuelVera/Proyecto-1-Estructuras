@@ -1,6 +1,5 @@
 package Proyecto;
 
-import java.util.Random;
 import javax.swing.JOptionPane;
 
 /**
@@ -47,6 +46,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         texto1 = new javax.swing.JLabel();
         id = new javax.swing.JFormattedTextField();
         comoJugar = new javax.swing.JButton();
+        autor = new javax.swing.JLabel();
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -133,8 +133,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         getContentPane().add(comoJugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, 200, 50));
 
-        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo_Principal.jpg"))); // NOI18N
-        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, -10, 510, 400));
+        autor.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        autor.setText("Autor: Samuel Vera");
+        getContentPane().add(autor, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, -1, -1));
+
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo_Tipo_Petgamino.png"))); // NOI18N
+        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 390));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -151,8 +155,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         
         //Declaracion a pasar al constructor del tablero
     static protected String ID2;
-    static private int lado, nminas;
-
+    static protected int lado, nminas;
+    protected TableroGrafico avanzar;
     
     private void botonJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonJugarActionPerformed
             //Busqueda de errores en manejo de la interfaz
@@ -179,7 +183,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
             //colocar(this.lado,this.nminas);
             if(aux==1){
-                TableroGrafico avanzar = new TableroGrafico(this.lado, this.nminas);
+                avanzar = new TableroGrafico(this.lado, this.nminas);
                 this.setVisible(false);
                 avanzar.setVisible(true);
             }
@@ -237,6 +241,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup Dificultad;
+    private javax.swing.JLabel autor;
     private javax.swing.JButton botonJugar;
     private javax.swing.JButton botonSalir;
     private javax.swing.JRadioButton btDificil;
