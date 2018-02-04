@@ -30,6 +30,7 @@ public class Personalizar extends javax.swing.JFrame {
         Nminas = new javax.swing.JSpinner();
         Cancelar = new javax.swing.JButton();
         Confirmar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -80,13 +81,17 @@ public class Personalizar extends javax.swing.JFrame {
         });
         getContentPane().add(Confirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 110, 30));
 
-        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo_Principal.jpg"))); // NOI18N
-        getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-25, -15, 940, 960));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
+        jLabel1.setText("Nota: Elige la misma cantidad de filas y columnas");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, 40));
+
+        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo_mapa_topografia.png"))); // NOI18N
+        getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 180));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
-    static private int a = 1, b = 0, c = 1, k;
+    static private int a = 1, b = 0, c = 1;
         //Retornar el tamaño del lado del tablero
     static public int getA(){
         return a;
@@ -135,6 +140,7 @@ public class Personalizar extends javax.swing.JFrame {
             System.out.println("Excepción "+e+" capturada");
         }
         if(a==b && c < b*a){ //Paso de la ventana de Personalización a la del tablero
+                MenuPrincipal.nminas = c;
                 this.setVisible(false);
                 TableroGrafico aux2 = new TableroGrafico(a,c);
                 aux2.setVisible(true);
@@ -148,6 +154,8 @@ public class Personalizar extends javax.swing.JFrame {
 
     private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
         this.setVisible(false);
+        MenuPrincipal menu = new MenuPrincipal();
+        menu.setVisible(true);
     }//GEN-LAST:event_CancelarActionPerformed
 
     /**
@@ -195,5 +203,6 @@ public class Personalizar extends javax.swing.JFrame {
     private javax.swing.JLabel Txt;
     private javax.swing.JLabel Txt2;
     private javax.swing.JLabel Txt3;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
