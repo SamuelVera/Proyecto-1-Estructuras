@@ -29,6 +29,9 @@ public class TableroGrafico extends javax.swing.JFrame {
         tableroD = new javax.swing.JPanel();
         dificultad = new javax.swing.JLabel();
         mostrar = new javax.swing.JToggleButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        hud = new javax.swing.JTextPane();
+        fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -36,7 +39,9 @@ public class TableroGrafico extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(600, 500));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        tableroD.setBackground(new java.awt.Color(204, 153, 0));
         tableroD.setMaximumSize(null);
+        tableroD.setOpaque(false);
         tableroD.setVerifyInputWhenFocusTarget(false);
         getContentPane().add(tableroD, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -50,7 +55,21 @@ public class TableroGrafico extends javax.swing.JFrame {
                 mostrarActionPerformed(evt);
             }
         });
-        getContentPane().add(mostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
+        getContentPane().add(mostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 340, -1, -1));
+
+        hud.setEditable(false);
+        hud.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        hud.setText("Minas: "+MenuPrincipal.nminas);
+        hud.setAutoscrolls(false);
+        hud.setFocusable(false);
+        hud.setOpaque(false);
+        hud.setRequestFocusEnabled(false);
+        jScrollPane1.setViewportView(hud);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 630, 280, 40));
+
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo_mapa_topografia.png"))); // NOI18N
+        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 920, 800));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -59,7 +78,6 @@ public class TableroGrafico extends javax.swing.JFrame {
     private static CasillaGrafica[][] tabDinamico;
     private static Casilla[][] casillas;
     private int lado, nminas;
-    
     public static CasillaGrafica[][] getTabDinamico(){
         return tabDinamico;
     }
@@ -72,6 +90,7 @@ public class TableroGrafico extends javax.swing.JFrame {
         int tamaño1 = 0, tamaño2 = 0;
         this.setLocation(250, 0);
         this.setSize(800,770);
+        hud.setLocation(450, 1000);
         tableroD.setPreferredSize(new Dimension(800,770));
         if(lado == 10 && nminas == 10){
             this.setSize(900,750);
@@ -129,47 +148,15 @@ public class TableroGrafico extends javax.swing.JFrame {
     private void mostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarActionPerformed
         colocar(this.lado,this.nminas);
         construir(this.lado,this.nminas);
-        tableroD.remove(mostrar);
+        mostrar.setEnabled(false);
+        mostrar.setVisible(false);
     }//GEN-LAST:event_mostrarActionPerformed
-    
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TableroGrafico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TableroGrafico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TableroGrafico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TableroGrafico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TableroGrafico(0,0).setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel dificultad;
+    private javax.swing.JLabel fondo;
+    private javax.swing.JTextPane hud;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JToggleButton mostrar;
     private javax.swing.JPanel tableroD;
     // End of variables declaration//GEN-END:variables
