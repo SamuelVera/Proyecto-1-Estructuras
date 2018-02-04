@@ -28,7 +28,7 @@ public class CasillaGrafica extends JButton implements ActionListener{
         setLocation(x, y);//Parámetros posición en y, en x
         setPreferredSize(new Dimension(ancho,alto)); //Tamaño de la casilla
         addActionListener(this); //Implementación del Action Listener para evento de click
-        this.setBackground(Color.gray);
+        this.setBackground(Color.getHSBColor(40, 95, 51));
         setCoord(x,y);
     }
     public void setCoord(int j, int i){ //Establecer coordenada de la casilla
@@ -154,14 +154,15 @@ public class CasillaGrafica extends JButton implements ActionListener{
     }
         //Método de pérdida de la partida
     private void perder(){
-        setIcono("src\\Imagenes\\Mina.png");
+        this.setIcono("src\\Imagenes\\Mina.png");
+        this.setEnabled(false);
         this.setBackground(Color.red);
         for(int k=0;k<tablero.length;k++){ //Barrido del arreglo para revelar las minas
             for(int l=0;l<tablero.length;l++){
                 if(tablero[k][l].isVacio() == false){
-                    tablero2[k][l].setBackground(Color.red);
                     setIcono("src\\Imagenes\\Mina.png",k,l);
                 }
+                tablero2[k][l].setEnabled(false);
             }
         }
         GameOver over = new GameOver();
