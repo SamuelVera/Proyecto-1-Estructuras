@@ -49,7 +49,7 @@ public class TableroGrafico extends javax.swing.JFrame {
         getContentPane().add(dificultad, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 10));
 
         mostrar.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        mostrar.setText("Mostrar Tablero");
+        mostrar.setText("Mostrar Mapa");
         mostrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mostrarActionPerformed(evt);
