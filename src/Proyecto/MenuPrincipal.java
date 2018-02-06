@@ -153,10 +153,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
         }else remove(dialogButton);
     }//GEN-LAST:event_botonSalirActionPerformed
         
-        //Declaracion a pasar al constructor del tablero
+        //Declaracion a pasar al constructor del tablero y referenciable a nivel global
     static protected String ID2;
     static protected int lado, nminas;
-    protected TableroGrafico avanzar;
+    static protected TableroGrafico avanzar;
     
     private void botonJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonJugarActionPerformed
             //Busqueda de errores en manejo de la interfaz
@@ -179,12 +179,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }else if(btPer.isSelected()){
                 Personalizar personal = new Personalizar();
                 this.setVisible(false);
+                this.dispose();
                 personal.setVisible(true);
             }
             //colocar(this.lado,this.nminas);
             if(aux==1){
                 avanzar = new TableroGrafico(this.lado, this.nminas);
                 this.setVisible(false);
+                this.dispose();
                 avanzar.setVisible(true);
             }
         }
