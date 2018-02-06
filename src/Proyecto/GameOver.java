@@ -110,6 +110,8 @@ public class GameOver extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVolverActionPerformed
+        MenuPrincipal.avanzar.setVisible(false);
+        MenuPrincipal.avanzar.dispose();
         menu.setVisible(true);
         this.dispose();
         this.setVisible(false);
