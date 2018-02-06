@@ -142,8 +142,8 @@ public class Personalizar extends javax.swing.JFrame {
         if(a==b && c < b*a){ //Paso de la ventana de Personalización a la del tablero
                 MenuPrincipal.nminas = c;
                 this.setVisible(false);
-                TableroGrafico aux2 = new TableroGrafico(a,c);
-                aux2.setVisible(true);
+                MenuPrincipal.avanzar = new TableroGrafico(a,c);
+                MenuPrincipal.avanzar.setVisible(true);
         }else if(a!=b){
             JOptionPane.showMessageDialog(null, "ERROR!!! El Alto y Ancho deben ser IGUALES");
         }else{
