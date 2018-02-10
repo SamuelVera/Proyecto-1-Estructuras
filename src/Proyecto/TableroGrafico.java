@@ -2,6 +2,7 @@ package Proyecto;
 
 import java.awt.Dimension;
 import java.util.Random;
+
 /**
  * Clase del JFrame para desplegar los gráficos del tablero
 */
@@ -90,7 +91,6 @@ public class TableroGrafico extends javax.swing.JFrame {
         int tamaño1 = 0, tamaño2 = 0;
         this.setLocation(250, 0);
         this.setSize(800,770);
-        hud.setLocation(450, 1000);
         tableroD.setPreferredSize(new Dimension(800,770));
         if(lado == 10 && nminas == 10){
             this.setSize(900,750);
@@ -120,6 +120,7 @@ public class TableroGrafico extends javax.swing.JFrame {
                 tableroD.add(tabDinamico[i][j]);
             }
         }
+        hud.setLocation(450, 1000);
     }
         //
     protected void colocar(int lado, int limiteMinas){
