@@ -50,7 +50,7 @@
               <Font name="Monospaced" size="18" style="0"/>
             </Property>
             <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="Le damos la bienvenida cart&#xf3;grafo &#xa;experto, usted tiene como objetivo la&#xa;realizaci&#xf3;n de un mapa de la zona, m&#xe1;s&#xa;le advertimos que tenga sumo cuidado&#xa;pues la zona a estudiar esta plagada&#xa;de minas explosivas y la detonaci&#xf3;n de&#xa;uno podr&#xed;a suponerle la muerte. Para&#xa;ayudarse de esta tarea le daremos un&#xa;equipo que divide el mapa en sectores&#xa;para aislar los que tengan una mina, &#xa;adem&#xe1;s para ayudarse podra marcar los&#xa;mismos con una bandera(hay mina) o un&#xa;interrogatorio(desconocido), con esto&#xa;aclarado le deseamos muy buena suerte."/>
+            <Property name="text" type="java.lang.String" value="Le damos la bienvenida cart&#xf3;grafo &#xa;experto, usted tiene como objetivo la&#xa;realizaci&#xf3;n de un mapa de la zona, m&#xe1;s&#xa;le advertimos que tenga sumo cuidado&#xa;pues la zona a estudiar esta plagada&#xa;de minas explosivas y la detonaci&#xf3;n de&#xa;una podr&#xed;a suponerle la muerte. Para&#xa;ayudarse de esta tarea le daremos un&#xa;equipo que divide el mapa en sectores&#xa;para aislar los que tengan una mina, &#xa;adem&#xe1;s para ayudarse podra marcar los&#xa;mismos con una bandera(hay mina) o un&#xa;interrogatorio(desconocido), con esto&#xa;aclarado le deseamos muy buena suerte."/>
           </Properties>
         </Component>
       </SubComponents>

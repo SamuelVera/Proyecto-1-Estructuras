@@ -38,7 +38,7 @@ public class ComoJugar extends javax.swing.JFrame {
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
         jTextArea1.setRows(5);
-        jTextArea1.setText("Le damos la bienvenida cartógrafo \nexperto, usted tiene como objetivo la\nrealización de un mapa de la zona, más\nle advertimos que tenga sumo cuidado\npues la zona a estudiar esta plagada\nde minas explosivas y la detonación de\nuno podría suponerle la muerte. Para\nayudarse de esta tarea le daremos un\nequipo que divide el mapa en sectores\npara aislar los que tengan una mina, \nademás para ayudarse podra marcar los\nmismos con una bandera(hay mina) o un\ninterrogatorio(desconocido), con esto\naclarado le deseamos muy buena suerte.");
+        jTextArea1.setText("Le damos la bienvenida cartógrafo \nexperto, usted tiene como objetivo la\nrealización de un mapa de la zona, más\nle advertimos que tenga sumo cuidado\npues la zona a estudiar esta plagada\nde minas explosivas y la detonación de\nuna podría suponerle la muerte. Para\nayudarse de esta tarea le daremos un\nequipo que divide el mapa en sectores\npara aislar los que tengan una mina, \nademás para ayudarse podra marcar los\nmismos con una bandera(hay mina) o un\ninterrogatorio(desconocido), con esto\naclarado le deseamos muy buena suerte.");
         barra.setViewportView(jTextArea1);
 
         getContentPane().add(barra, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 370));
