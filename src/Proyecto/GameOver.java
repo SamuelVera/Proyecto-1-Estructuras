@@ -79,15 +79,15 @@ public class GameOver extends javax.swing.JFrame {
         });
         getContentPane().add(btSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, 190, -1));
 
-        Victoria.setFont(new java.awt.Font("Gabriola", 2, 48)); // NOI18N
-        Victoria.setForeground(new java.awt.Color(204, 255, 255));
+        Victoria.setFont(new java.awt.Font("Gabriola", 2, 64)); // NOI18N
+        Victoria.setForeground(new java.awt.Color(0, 255, 0));
         Victoria.setText("¡¡¡VICTORIA!!!"); // NOI18N
-        getContentPane().add(Victoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 300, 60));
+        getContentPane().add(Victoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 300, 60));
 
-        Victoria2.setFont(new java.awt.Font("Gabriola", 0, 36)); // NOI18N
-        Victoria2.setForeground(new java.awt.Color(204, 255, 255));
+        Victoria2.setFont(new java.awt.Font("Gabriola", 0, 48)); // NOI18N
+        Victoria2.setForeground(new java.awt.Color(0, 255, 0));
         Victoria2.setText("ENHORABUENA");
-        getContentPane().add(Victoria2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 200, -1));
+        getContentPane().add(Victoria2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 270, -1));
 
         Derrota.setFont(new java.awt.Font("Comic Sans MS", 2, 48)); // NOI18N
         Derrota.setForeground(new java.awt.Color(204, 0, 0));
@@ -97,7 +97,7 @@ public class GameOver extends javax.swing.JFrame {
         Derrota2.setFont(new java.awt.Font("Comic Sans MS", 2, 36)); // NOI18N
         Derrota2.setForeground(new java.awt.Color(204, 0, 0));
         Derrota2.setText("INTENTALO DE NUEVO");
-        getContentPane().add(Derrota2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
+        getContentPane().add(Derrota2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, -1, -1));
 
         ID.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
         ID.setText("ID: "+MenuPrincipal.ID2);
