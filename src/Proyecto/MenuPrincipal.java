@@ -47,6 +47,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         id = new javax.swing.JFormattedTextField();
         comoJugar = new javax.swing.JButton();
         autor = new javax.swing.JLabel();
+        logo = new javax.swing.JLabel();
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -64,7 +65,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 botonJugarActionPerformed(evt);
             }
         });
-        getContentPane().add(botonJugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 200, 50));
+        getContentPane().add(botonJugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 200, 50));
 
         botonSalir.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
         botonSalir.setForeground(new java.awt.Color(102, 102, 102));
@@ -75,29 +76,29 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 botonSalirActionPerformed(evt);
             }
         });
-        getContentPane().add(botonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, 200, 50));
+        getContentPane().add(botonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 300, 200, 50));
 
         texto.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         texto.setText("Dificultad:");
-        getContentPane().add(texto, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, -1, 20));
+        getContentPane().add(texto, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, -1, 20));
 
         Dificultad.add(btFacil);
         btFacil.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         btFacil.setText("Fácil");
         btFacil.setOpaque(false);
-        getContentPane().add(btFacil, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, -1, 20));
+        getContentPane().add(btFacil, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, -1, 20));
 
         Dificultad.add(btMedia);
         btMedia.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         btMedia.setText("Media");
         btMedia.setOpaque(false);
-        getContentPane().add(btMedia, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, -1, 20));
+        getContentPane().add(btMedia, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, -1, 20));
 
         Dificultad.add(btDificil);
         btDificil.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         btDificil.setText("Difícil");
         btDificil.setOpaque(false);
-        getContentPane().add(btDificil, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 240, 80, 20));
+        getContentPane().add(btDificil, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 230, 80, 20));
 
         Dificultad.add(btPer);
         btPer.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
@@ -108,11 +109,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 btPerActionPerformed(evt);
             }
         });
-        getContentPane().add(btPer, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 270, -1, 20));
+        getContentPane().add(btPer, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 260, -1, 20));
 
         texto1.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         texto1.setText("ID de Jugador: ");
-        getContentPane().add(texto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
+        getContentPane().add(texto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
 
         id.setText(" ");
         id.addActionListener(new java.awt.event.ActionListener() {
@@ -120,7 +121,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 idActionPerformed(evt);
             }
         });
-        getContentPane().add(id, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, 280, 30));
+        getContentPane().add(id, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, 280, 30));
 
         comoJugar.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
         comoJugar.setForeground(new java.awt.Color(102, 102, 102));
@@ -131,14 +132,17 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 comoJugarActionPerformed(evt);
             }
         });
-        getContentPane().add(comoJugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, 200, 50));
+        getContentPane().add(comoJugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, 200, 50));
 
         autor.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
         autor.setText("Autor: Samuel Vera");
-        getContentPane().add(autor, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, -1, -1));
+        getContentPane().add(autor, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, -1, -1));
+
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logo.png"))); // NOI18N
+        getContentPane().add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 360, 70));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo_Tipo_Petgamino.png"))); // NOI18N
-        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 390));
+        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 370));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -253,6 +257,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton comoJugar;
     private javax.swing.JLabel fondo;
     protected javax.swing.JFormattedTextField id;
+    private javax.swing.JLabel logo;
     private javax.swing.JLabel texto;
     private javax.swing.JLabel texto1;
     // End of variables declaration//GEN-END:variables
