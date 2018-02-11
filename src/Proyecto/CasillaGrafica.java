@@ -188,7 +188,7 @@ public class CasillaGrafica extends JButton implements ActionListener{
             over.setVisible(true);
         }
     }
-        //Método para colocar o cambiar imagen de la casilla
+        //Método para colocarCasillas o cambiar imagen de la casilla
         //Parametros: Dirección e indices
     private void setIcono(String direccion, int x, int y){
         ImageIcon img = new ImageIcon(direccion);
