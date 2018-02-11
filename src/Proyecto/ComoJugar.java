@@ -1,18 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Proyecto;
 
-/**
- *
- * @author samue
- */
 public class ComoJugar extends javax.swing.JFrame {
 
     /**
-     * Constructor psts Jform ComoJugar
+     * Constructor para Jform ComoJugar
      */
     public ComoJugar() {
         initComponents();
