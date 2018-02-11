@@ -92,13 +92,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btMedia.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         btMedia.setText("Media");
         btMedia.setOpaque(false);
-        getContentPane().add(btMedia, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, -1, 20));
+        getContentPane().add(btMedia, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 230, -1, 20));
 
         Dificultad.add(btDificil);
         btDificil.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         btDificil.setText("Difícil");
         btDificil.setOpaque(false);
-        getContentPane().add(btDificil, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 230, 80, 20));
+        getContentPane().add(btDificil, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, 80, 20));
 
         Dificultad.add(btPer);
         btPer.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
@@ -181,12 +181,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 this.lado = 22; this.nminas = 100;  //22x22 y 100 minas (Dificultad Difícil)
                 aux++;
             }else if(btPer.isSelected()){
+                    //Avanzar a la venta de pesonalizar el tablero
                 Personalizar personal = new Personalizar();
                 this.setVisible(false);
                 this.dispose();
                 personal.setVisible(true);
             }
-            //colocar(this.lado,this.nminas);
+                //Avanzar a la ventana donde se despliega el tablero
             if(aux==1){
                 avanzar = new TableroGrafico(this.lado, this.nminas);
                 this.setVisible(false);
@@ -203,7 +204,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idActionPerformed
         
     }//GEN-LAST:event_idActionPerformed
-
+        //Entrada a la venta de instrucciones del juego
     private void comoJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comoJugarActionPerformed
         ComoJugar como = new ComoJugar();
         como.setVisible(true);
@@ -237,7 +238,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
 
-        /* Create and display the form */
+        /* Crear y desplegar el Jform */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MenuPrincipal().setVisible(true);
