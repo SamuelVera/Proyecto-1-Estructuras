@@ -20,7 +20,7 @@ public class TableroGrafico extends javax.swing.JFrame {
     }
 
     /**
-     * El el método se llama desde el constructor de la clase 
+     * El método se llama desde el constructor de la clase 
      * del JFrame
      */
     @SuppressWarnings("unchecked")
@@ -79,6 +79,7 @@ public class TableroGrafico extends javax.swing.JFrame {
     private static CasillaGrafica[][] tabDinamico;
     private static Casilla[][] casillas;
     private int lado, nminas;
+        //Getter para los arreglos de los tableros
     public static CasillaGrafica[][] getTabDinamico(){
         return tabDinamico;
     }
@@ -89,23 +90,23 @@ public class TableroGrafico extends javax.swing.JFrame {
         //Método para construir la interfaz tablero dependiente de la dificultad
     private void construir(int lado, int nminas){
         int tamaño1 = 0, tamaño2 = 0;
-        this.setLocation(250, 0);
+        this.setLocationRelativeTo(null);
         this.setSize(800,770);
         tableroD.setPreferredSize(new Dimension(800,770));
-        if(lado == 10 && nminas == 10){
+        if(lado == 10 && nminas == 10){ //Dificultad Facil
             this.setSize(900,750);
             tableroD.setPreferredSize(new Dimension(750,750));
             tamaño1 = 65;
             tamaño2 = 65;
-        }else if(lado == 15 && nminas == 40){
+        }else if(lado == 15 && nminas == 40){   //Dificultad Media
             this.setSize(900,750);
             tableroD.setPreferredSize(new Dimension(750,750));
             tamaño1 = 43;
             tamaño2 = 43;
-        }else if(lado == 22 && nminas == 100){
+        }else if(lado == 22 && nminas == 100){  //Dificultad Dificil
             tamaño1 = 27;
             tamaño2 = 30;
-        }else{
+        }else{  //Dificultad Personalizada
             tamaño1 = Personalizar.getTamaño1();
             tamaño2 = Personalizar.getTamaño1();
         }
@@ -123,7 +124,7 @@ public class TableroGrafico extends javax.swing.JFrame {
         hud.setLocation(450, 1000);
     }
         //
-    protected void colocar(int lado, int limiteMinas){
+    protected void colocarCasillas(int lado, int limiteMinas){
         casillas = new Casilla[lado][lado];
         int minaux=0, rand;
         Random random = new Random();
@@ -147,7 +148,7 @@ public class TableroGrafico extends javax.swing.JFrame {
     }
         //Clickear boton de mostrar
     private void mostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarActionPerformed
-        colocar(this.lado,this.nminas);
+        colocarCasillas(this.lado,this.nminas);
         construir(this.lado,this.nminas);
         mostrar.setEnabled(false);
         mostrar.setVisible(false);
