@@ -97,38 +97,70 @@ public class Personalizar extends javax.swing.JFrame {
         return a;
     }
     static public int getTamaño1(){
-            /*Tamaños adecuados para la que la cantidad de casillas no sobrepase
-            el tamaño en pixeles del tablero*/
-        if(getA()==30) return 21;
-        else if(getA() == 29) return 22;
-        else if(getA() == 28) return 23;
-        else if(getA() == 27) return 24;
-        else if(getA() == 26) return 25;
-        else if(getA() == 25) return 26;
-        else if(getA() == 24) return 28;
-        else if(getA() == 23) return 29;
-        else if(getA() == 22) return 30;
-        else if(getA() == 21) return 32;
-        else if(getA() == 20) return 34;
-        else if(getA() == 19) return 36;
-        else if(getA() == 18) return 38;
-        else if(getA() == 17) return 40;
-        else if(getA() == 16) return 43;
-        else if(getA() == 15) return 48;
-        else if(getA() == 14) return 50;
-        else if(getA() == 13) return 53;
-        else if(getA() == 12) return 57;
-        else if(getA() == 11) return 62;
-        else if(getA() == 10) return 68;
-        else if(getA() == 9) return 76;
-        else if(getA() == 8) return 85;
-        else if(getA() == 7) return 97;
-        else if(getA() == 6) return 110;
-        else if(getA()== 5) return 140;
-        else if(getA() == 4) return 170;
-        else if(getA() == 3) return 240;
-        else if(getA() == 2) return 300;
-        else return 0;
+        /*Tamaños adecuados para la que la cantidad de casillas no sobrepase
+        el tamaño en pixeles del tablero*/
+        switch (getA()) {
+            case 30:
+                return 21;
+            case 29:
+                return 22;
+            case 28:
+                return 23;
+            case 27:
+                return 24;
+            case 26:
+                return 25;
+            case 25:
+                return 26;
+            case 24:
+                return 28;
+            case 23:
+                return 29;
+            case 22:
+                return 30;
+            case 21:
+                return 32;
+            case 20:
+                return 34;
+            case 19:
+                return 36;
+            case 18:
+                return 38;
+            case 17:
+                return 40;
+            case 16:
+                return 43;
+            case 15:
+                return 48;
+            case 14:
+                return 50;
+            case 13:
+                return 53;
+            case 12:
+                return 57;
+            case 11:
+                return 62;
+            case 10:
+                return 68;
+            case 9:
+                return 76;
+            case 8:
+                return 85;
+            case 7:
+                return 97;
+            case 6:
+                return 110;
+            case 5:
+                return 140;
+            case 4:
+                return 170;
+            case 3:
+                return 240;
+            case 2:
+                return 300;
+            default:
+                return 0;
+        }
     }
         //Clickear confirmación de los datos personalizados
     private void ConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmarActionPerformed
