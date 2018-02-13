@@ -157,9 +157,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         }else remove(dialogButton);
     }//GEN-LAST:event_botonSalirActionPerformed
         
-        //Declaracion a pasar al constructor del tablero y referenciable a nivel global
+        //Ciertas variables referenciables estaticamente
     static protected String ID2;
-    static protected int lado, nminas;
     static protected TableroGrafico avanzar;
     
     private void botonJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonJugarActionPerformed
@@ -170,16 +169,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
         }else if(id.getText().trim().length() == 0){
             JOptionPane.showMessageDialog(null, "ERROR!!! Introduce un ID");
         }else{
-            int aux=0;
             if(btFacil.isSelected()){
-                this.lado = 10; this.nminas=10; //10x10 y 10 minas (Dificultad Facil
-                aux++;
+                    //10x10 y 10 minas (Dificultad Facil
+                continuar(10,10);
             }else if(btMedia.isSelected()){
-                this.lado = 15; this.nminas = 40; //15x15 y 40 minas (Dificultad Media)
-                aux++;
+                    //15x15 y 40 minas (Dificultad Media)
+                continuar(15,40);
             }else if(btDificil.isSelected()){
-                this.lado = 22; this.nminas = 100;  //22x22 y 100 minas (Dificultad Difícil)
-                aux++;
+                    //22x22 y 100 minas (Dificultad Difícil)
+                continuar(22,100);
             }else if(btPer.isSelected()){
                     //Avanzar a la venta de pesonalizar el tablero
                 Personalizar personal = new Personalizar();
@@ -187,22 +185,24 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 this.dispose();
                 personal.setVisible(true);
             }
-                //Avanzar a la ventana donde se despliega el tablero
-            if(aux==1){
-                avanzar = new TableroGrafico(this.lado, this.nminas);
-                this.setVisible(false);
-                this.dispose();
-                avanzar.setVisible(true);
-            }
+                
         }
     }//GEN-LAST:event_botonJugarActionPerformed
-
+        
+        //Función para continuar a la creación del tablero
+    private void continuar(int lado, int minas){
+        avanzar = new TableroGrafico(lado, minas);
+        this.setVisible(false);
+        this.dispose();
+        avanzar.setVisible(true);
+    }
+    
     private void btPerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPerActionPerformed
-        // TODO add your handling code here:
+        // 
     }//GEN-LAST:event_btPerActionPerformed
 
     private void idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idActionPerformed
-        
+        //CAMPO DE INTRODUCIR EL TEXTO DEL ID
     }//GEN-LAST:event_idActionPerformed
         //Entrada a la venta de instrucciones del juego
     private void comoJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comoJugarActionPerformed
@@ -214,11 +214,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+        
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
