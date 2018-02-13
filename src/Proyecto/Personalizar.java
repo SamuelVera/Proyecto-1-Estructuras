@@ -96,7 +96,7 @@ public class Personalizar extends javax.swing.JFrame {
     static public int getA(){
         return a;
     }
-    static public int getTamaño1(){
+    static public int getTamaño(){
         /*Tamaños adecuados para la que la cantidad de casillas no sobrepase
         el tamaño en pixeles del tablero*/
         switch (getA()) {
@@ -172,7 +172,6 @@ public class Personalizar extends javax.swing.JFrame {
             System.out.println("Excepción "+e+" capturada");
         }
         if(a==b && c < b*a){ //Paso de la ventana de Personalización a la del tablero
-                MenuPrincipal.nminas = c;
                 this.setVisible(false);
                 MenuPrincipal.avanzar = new TableroGrafico(a,c);
                 MenuPrincipal.avanzar.setVisible(true);
