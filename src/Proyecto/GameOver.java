@@ -100,7 +100,7 @@ public class GameOver extends javax.swing.JFrame {
         getContentPane().add(Derrota2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, -1, -1));
 
         ID.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
-        ID.setText("ID: "+MenuPrincipal.ID2);
+        ID.setText("ID: "+Jugador.getId());
         getContentPane().add(ID, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, -1, -1));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo_Tipo_Petgamino.png"))); // NOI18N

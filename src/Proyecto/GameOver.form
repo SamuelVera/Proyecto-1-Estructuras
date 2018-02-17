@@ -137,7 +137,7 @@
           <Font name="Comic Sans MS" size="24" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="&quot;ID: &quot;+MenuPrincipal.ID2" type="code"/>
+          <Connection code="&quot;ID: &quot;+Jugador.getId()" type="code"/>
         </Property>
       </Properties>
       <AuxValues>
