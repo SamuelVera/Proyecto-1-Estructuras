@@ -18,7 +18,7 @@ public class TableroGrafico extends javax.swing.JFrame {
         this.nminas = nminas;
         this.setLocationRelativeTo(null);
         this.dificultad.setText("Minas:" +this.nminas);
-        this.ID.setText("ID: "+MenuPrincipal.ID2);
+        this.ID.setText("ID: "+Jugador.getId());
     }
 
     /**
@@ -113,7 +113,7 @@ public class TableroGrafico extends javax.swing.JFrame {
         this.dificultad.setText("");
         this.ID.setText("");
         this.dificultad1.setText("Minas: "+nminas);
-        this.ID1.setText("ID: "+MenuPrincipal.ID2);
+        this.ID1.setText("ID: "+Jugador.getId());
             //El arreglo para las gráficas debe ser del mismo tamaño que el contruido en MenuPrincipal
         this.tabDinamico = new CasillaGrafica[lado][lado];
         for(int i=0;i<this.tabDinamico.length;i++){
