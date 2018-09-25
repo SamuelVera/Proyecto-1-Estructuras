@@ -22,6 +22,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     /**
      * Constructo de la clase del MenuPrincipal vetana
+	 * Cambio gafo para git hub 
      */
     public MenuPrincipal() {
         initComponents();
